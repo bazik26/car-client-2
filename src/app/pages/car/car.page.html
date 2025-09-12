@@ -1,0 +1,221 @@
+<!-- Современная страница автомобиля -->
+@if (car) {
+  <div class="modern-car-page">
+    <!-- Заголовок страницы -->
+    <div class="car-header">
+      <div class="container">
+        <div class="header-content">
+          <h1 class="car-title">
+            <i class="fas fa-car"></i>
+            {{ car.brand }} {{ car.model }} {{ car.year }}
+          </h1>
+          <div class="car-price">
+            {{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="car-layout">
+        <!-- Левая панель - изображения -->
+        <div class="car-images-panel">
+          <div class="images-card">
+            <div class="images-header">
+              <h3 class="images-title">
+                <i class="fas fa-images"></i>
+                Фотографии автомобиля
+              </h3>
+              <div class="images-count">
+                {{ car.files?.length || 0 }} фото
+              </div>
+            </div>
+            
+            <div class="images-container">
+              @if (car.files && car.files.length > 0) {
+                <swiper-container
+                  slides-per-view="1"
+                  navigation="true"
+                  pagination="true"
+                  loop="false"
+                  autoplay="false"
+                  autoplay-delay="0"
+                  autoplay-disable-on-interaction="true"
+                  speed="500"
+                  class="car-swiper"
+                >
+                  @for (file of car.files; track file; let index = $index) {
+                    <swiper-slide>
+                      <img 
+                        [src]="appService.getFileUrl(file)" 
+                        [alt]="car.brand + ' ' + car.model + ' - фото ' + (index + 1)"
+                        (load)="onImageLoad($event)"
+                        (error)="onImageError($event)"
+                      />
+                    </swiper-slide>
+                  }
+                </swiper-container>
+              } @else {
+                <div class="no-images-placeholder">
+                  <div class="placeholder-icon">
+                    <i class="fas fa-camera"></i>
+                  </div>
+                  <p>Фотографии автомобиля отсутствуют</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая панель - информация -->
+        <div class="car-info-panel">
+          <!-- Основная информация -->
+          <div class="info-card">
+            <div class="info-header">
+              <h3 class="info-title">
+                <i class="fas fa-info-circle"></i>
+                Основная информация
+              </h3>
+            </div>
+            
+            <div class="car-specs">
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-tachometer-alt"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">Пробег</span>
+                  <span class="spec-value">{{ car.mileage || 'Не указан' }} {{ car.mileage ? 'км' : '' }}</span>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-cog"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">Двигатель</span>
+                  <span class="spec-value">{{ car.engine || 'Не указан' }} {{ car.engine ? 'л' : '' }}</span>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">Коробка передач</span>
+                  <span class="spec-value">{{ car.gearbox || 'Не указана' }}</span>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-car-side"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">Привод</span>
+                  <span class="spec-value">{{ car.drive || 'Не указан' }}</span>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-gas-pump"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">Топливо</span>
+                  <span class="spec-value">{{ car.fuel || 'Не указано' }}</span>
+                </div>
+              </div>
+
+              <div class="spec-item">
+                <div class="spec-icon">
+                  <i class="fas fa-barcode"></i>
+                </div>
+                <div class="spec-content">
+                  <span class="spec-label">VIN</span>
+                  <a class="vin-link" (click)="openContactUsModal()">
+                    <i class="fas fa-eye"></i>
+                    Показать
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Описание -->
+          <div class="description-card">
+            <div class="description-header">
+              <h3 class="description-title">
+                <i class="fas fa-file-text"></i>
+                Описание автомобиля
+              </h3>
+            </div>
+            
+            <div class="description-content" [innerHTML]="car.description"></div>
+          </div>
+
+          <!-- Кнопки действий -->
+          <div class="actions-card">
+            <button class="contact-btn" (click)="openContactUsModal()">
+              <i class="fas fa-phone"></i>
+              Связаться с нами
+            </button>
+            <button class="favorite-btn">
+              <i class="fas fa-heart"></i>
+              В избранное
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Конфигурации -->
+      <div class="configurations-section">
+        <div class="configurations-card">
+          <div class="configurations-header">
+            <h2 class="configurations-title">
+              <i class="fas fa-list-check"></i>
+              Конфигурации и опции
+            </h2>
+            <div class="configurations-count">
+              {{ getTotalFeaturesCount() }} опций
+            </div>
+          </div>
+          
+          <div class="configurations-content">
+            @if (groupedFeatures.length) {
+              @for (category of groupedFeatures; track category.name) {
+                <div class="config-category">
+                  <div class="category-header">
+                    <h4 class="category-title">{{ category.name }}</h4>
+                    <span class="category-count">{{ category.features.length }} опций</span>
+                  </div>
+                  
+                  <div class="features-grid">
+                    @for (feature of category.features; track feature) {
+                      <div class="feature-item">
+                        <div class="feature-icon">
+                          <i class="fas fa-check"></i>
+                        </div>
+                        <span class="feature-text">{{ feature }}</span>
+                      </div>
+                    }
+                  </div>
+                </div>
+              }
+            } @else {
+              <div class="no-features">
+                <div class="no-features-icon">
+                  <i class="fas fa-info-circle"></i>
+                </div>
+                <h4 class="no-features-title">Нет дополнительных опций</h4>
+                <p class="no-features-text">Информация об опциях будет добавлена позже</p>
+              </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

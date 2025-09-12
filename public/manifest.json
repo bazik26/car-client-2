@@ -1,0 +1,53 @@
+{
+  "name": "Vam Auto - Пригон автомобилей",
+  "short_name": "Vam Auto",
+  "description": "Пригон автомобилей из Китая, США и Европы",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "ru",
+  "categories": ["business", "automotive"],
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Автомобили",
+      "short_name": "Авто",
+      "description": "Посмотреть доступные автомобили",
+      "url": "/cars/1",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    },
+    {
+      "name": "Оставить заявку",
+      "short_name": "Заявка",
+      "description": "Оставить заявку на автомобиль",
+      "url": "/home",
+      "icons": [
+        {
+          "src": "/favicon-32x32.png",
+          "sizes": "32x32"
+        }
+      ]
+    }
+  ]
+}

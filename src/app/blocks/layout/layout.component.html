@@ -1,0 +1,351 @@
+<!-- Современный хедер -->
+<header class="modern-header">
+  <div class="header-container">
+    <!-- Логотип -->
+    <div class="logo-section">
+      <a routerLink="/home" class="logo-link">
+        <div class="logo-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-name">{{ brandConfig.name }}</span>
+          <span class="logo-tagline">Premium Auto</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Центральная навигация -->
+    <nav class="center-nav d-none d-lg-flex">
+      <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/home" class="nav-link">
+          <i class="fas fa-home"></i>
+          <span>Главная</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/cars/search" class="nav-link">
+          <i class="fas fa-search"></i>
+          <span>Автомобили</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/about-us" class="nav-link">
+          <i class="fas fa-info-circle"></i>
+          <span>О нас</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/team" class="nav-link">
+          <i class="fas fa-users"></i>
+          <span>Команда</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/contacts" class="nav-link">
+          <i class="fas fa-phone"></i>
+          <span>Контакты</span>
+        </a>
+      </div>
+    </nav>
+
+    <!-- Правая панель -->
+    <div class="header-actions">
+      <!-- Кнопка меню для мобильных -->
+      <button class="mobile-menu-btn d-lg-none" (click)="toggleMobileMenu()" aria-label="Открыть меню">
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+        <span class="menu-line"></span>
+      </button>
+
+      <!-- Контактная информация для десктопа -->
+      <div class="contact-info d-none d-lg-flex">
+        <a href="{{ brandConfig.phoneLink }}" class="contact-link">
+          <i class="fas fa-phone"></i>
+          <span>{{ brandConfig.phone }}</span>
+        </a>
+      </div>
+
+      <!-- Кнопка CTA -->
+      <button class="cta-button d-none d-lg-flex" (click)="openContactUsModal()">
+        <i class="fas fa-paper-plane"></i>
+        <span>Заказать</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Декоративные элементы -->
+  <div class="header-decoration">
+    <div class="decoration-circle circle-1"></div>
+    <div class="decoration-circle circle-2"></div>
+    <div class="decoration-line"></div>
+  </div>
+</header>
+
+<!-- Современное мобильное меню -->
+<div class="modern-mobile-menu" [class.active]="isMobileMenuOpen">
+  <div class="mobile-overlay" (click)="closeMobileMenu()"></div>
+  <div class="mobile-menu-panel">
+    <div class="mobile-header">
+      <div class="mobile-logo">
+        <i class="fas fa-car"></i>
+        <span>{{ brandConfig.name }}</span>
+      </div>
+      <button class="mobile-close" (click)="closeMobileMenu()" aria-label="Закрыть меню">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    
+    <nav class="mobile-nav">
+      <div class="nav-item" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+        <a routerLink="/home" (click)="onMenuClick()">
+          <i class="fas fa-home"></i>
+          <span>Главная</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/cars/search" (click)="onMenuClick()">
+          <i class="fas fa-search"></i>
+          <span>Автомобили</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/about-us" (click)="onMenuClick()">
+          <i class="fas fa-info-circle"></i>
+          <span>О нас</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/team" (click)="onMenuClick()">
+          <i class="fas fa-users"></i>
+          <span>Команда</span>
+        </a>
+      </div>
+      <div class="nav-item" routerLinkActive="active">
+        <a routerLink="/contacts" (click)="onMenuClick()">
+          <i class="fas fa-phone"></i>
+          <span>Контакты</span>
+        </a>
+      </div>
+    </nav>
+    
+    <div class="mobile-footer">
+      <div class="mobile-contact">
+        <a href="{{ brandConfig.phoneLink }}" class="contact-item">
+          <i class="fas fa-phone"></i>
+          <div>
+            <span class="contact-label">Телефон</span>
+            <span class="contact-value">{{ brandConfig.phone }}</span>
+          </div>
+        </a>
+        <a href="mailto:{{ brandConfig.email }}" class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <div>
+            <span class="contact-label">Email</span>
+            <span class="contact-value">{{ brandConfig.email }}</span>
+          </div>
+        </a>
+      </div>
+      <button class="mobile-cta" (click)="openContactUsModal(); onMenuClick()">
+        <i class="fas fa-paper-plane"></i>
+        <span>Оставить заявку</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="d-flex">
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+  <!--  <aside class="sidebar">-->
+  <!--    <nav>-->
+  <!--      <ul>-->
+  <!--        <li *ngFor="let item of menuItems" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">-->
+  <!--          <a [routerLink]="item.route" class="sidebar-link">-->
+  <!--            <div class="sidebar__icon-container">-->
+  <!--              <div class="sidebar__icon">-->
+  <!--                <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8"-->
+  <!--                     stroke-linecap="round" stroke-linejoin="round">-->
+  <!--                  <path [attr.d]="item.svg"></path>-->
+  <!--                </svg>-->
+  <!--              </div>-->
+  <!--              <span class="sidebar__label">{{ item.label }}</span>-->
+  <!--            </div>-->
+  <!--          </a>-->
+  <!--        </li>-->
+  <!--      </ul>-->
+  <!--    </nav>-->
+  <!--  </aside>-->
+</div>
+
+<footer class="modern-footer">
+  <div class="footer-background">
+    <div class="footer-decoration">
+      <div class="decoration-circle circle-1"></div>
+      <div class="decoration-circle circle-2"></div>
+      <div class="decoration-circle circle-3"></div>
+      <div class="decoration-line line-1"></div>
+      <div class="decoration-line line-2"></div>
+    </div>
+  </div>
+
+  <div class="container">
+    <!-- Основной контент футера -->
+    <div class="footer-main">
+      <!-- Логотип и контакты -->
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <div class="logo-icon">
+            <i class="fas fa-car"></i>
+          </div>
+          <div class="logo-text">
+            <h2 class="brand-name">{{ brandConfig.name }}</h2>
+            <p class="brand-tagline">Премиум автомобили из Китая, США и Европы</p>
+          </div>
+        </div>
+        
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Телефон</span>
+              <a href="{{ brandConfig.phoneLink }}" class="contact-value">{{ brandConfig.phone }}</a>
+            </div>
+          </div>
+          
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-info">
+              <span class="contact-label">Email</span>
+              <a href="mailto:{{ brandConfig.email }}" class="contact-value">{{ brandConfig.email }}</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Навигация -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <i class="fas fa-compass"></i>
+          Навигация
+        </h3>
+        <nav class="footer-nav">
+          <a routerLink="/home" (click)="onMenuClick()" class="nav-link">
+            <i class="fas fa-home"></i>
+            <span>Главная</span>
+          </a>
+          <a routerLink="/cars/search" (click)="onMenuClick()" class="nav-link">
+            <i class="fas fa-search"></i>
+            <span>Автомобили</span>
+          </a>
+          <a routerLink="/about-us" (click)="onMenuClick()" class="nav-link">
+            <i class="fas fa-info-circle"></i>
+            <span>О нас</span>
+          </a>
+          <a routerLink="/contacts" (click)="onMenuClick()" class="nav-link">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>Контакты</span>
+          </a>
+        </nav>
+      </div>
+
+      <!-- Услуги -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <i class="fas fa-cogs"></i>
+          Наши услуги
+        </h3>
+        <div class="services-grid">
+          <div class="service-item">
+            <i class="fas fa-shipping-fast"></i>
+            <span>Пригон из Китая</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-globe-americas"></i>
+            <span>Пригон из США</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-globe-europe"></i>
+            <span>Пригон из Европы</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-file-contract"></i>
+            <span>Таможенное оформление</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-tools"></i>
+            <span>Сервисное обслуживание</span>
+          </div>
+          <div class="service-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Гарантия качества</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Социальные сети и CTA -->
+      <div class="footer-section">
+        <h3 class="section-title">
+          <i class="fas fa-users"></i>
+          Свяжитесь с нами
+        </h3>
+        
+        <div class="social-section">
+          <div class="social-title">Мы в соцсетях</div>
+          <div class="social-icons">
+            <a href="#" class="social-icon telegram" aria-label="Telegram">
+              <i class="fab fa-telegram"></i>
+              <span>Telegram</span>
+            </a>
+            <a href="#" class="social-icon whatsapp" aria-label="WhatsApp">
+              <i class="fab fa-whatsapp"></i>
+              <span>WhatsApp</span>
+            </a>
+            <a href="#" class="social-icon instagram" aria-label="Instagram">
+              <i class="fab fa-instagram"></i>
+              <span>Instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <button class="cta-button" (click)="openContactUsModal()">
+          <div class="cta-icon">
+            <i class="fas fa-paper-plane"></i>
+          </div>
+          <div class="cta-text">
+            <span class="cta-title">Оставить заявку</span>
+            <span class="cta-subtitle">Получите консультацию</span>
+          </div>
+          <div class="cta-arrow">
+            <i class="fas fa-arrow-right"></i>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Нижняя часть футера -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-content">
+        <div class="copyright">
+          <i class="fas fa-copyright"></i>
+          <span>© 2010 {{ brandConfig.name }}. Все права защищены.</span>
+        </div>
+        
+        <div class="legal-links">
+          <a routerLink="/privacy-policy" (click)="onMenuClick()" class="legal-link">
+            <i class="fas fa-shield-alt"></i>
+            <span>Политика конфиденциальности</span>
+          </a>
+          <a routerLink="/terms-of-service" (click)="onMenuClick()" class="legal-link">
+            <i class="fas fa-file-contract"></i>
+            <span>Пользовательское соглашение</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

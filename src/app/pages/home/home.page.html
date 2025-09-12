@@ -1,0 +1,291 @@
+<!-- Hero Section - Современный асимметричный дизайн -->
+<section class="hero-section">
+  <!-- Геометрические фигуры -->
+  <div class="geometric-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+    <div class="shape shape-4"></div>
+  </div>
+
+  <!-- Левая колонка - навигация и статистика -->
+  <div class="hero-left">
+    <div class="hero-nav">
+      <a routerLink="/cars/search" class="nav-item">
+        <div class="nav-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="nav-text">Автомобили</div>
+      </a>
+      <a routerLink="/services" class="nav-item">
+        <div class="nav-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <div class="nav-text">Услуги</div>
+      </a>
+      <a routerLink="/about" class="nav-item">
+        <div class="nav-icon">
+          <i class="fas fa-info-circle"></i>
+        </div>
+        <div class="nav-text">О нас</div>
+      </a>
+      <a routerLink="/contacts" class="nav-item">
+        <div class="nav-icon">
+          <i class="fas fa-phone"></i>
+        </div>
+        <div class="nav-text">Контакты</div>
+      </a>
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-number">500+</div>
+        <div class="stat-label">Автомобилей в наличии</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">15</div>
+        <div class="stat-label">Лет опыта</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">1000+</div>
+        <div class="stat-label">Довольных клиентов</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Центральная колонка - основной контент -->
+  <div class="hero-center">
+    <div class="hero-logo">
+      <div class="logo-container">
+        <div class="logo-icon">
+          <i class="fas fa-car"></i>
+        </div>
+        <div class="logo-text">
+          <span class="logo-brand" [attr.data-text]="brandConfig.name">
+            {{ brandConfig.name }}
+            <span class="brand-accent">AUTO</span>
+          </span>
+          <span class="logo-tagline">Автомобили с пробегом</span>
+        </div>
+      </div>
+    </div>
+    
+    <h1 class="hero-title">
+      <span class="title-line">Добро пожаловать в</span>
+      <span class="title-line">{{ brandConfig.name }}</span>
+      <span class="title-line">Лучшие автомобили с пробегом</span>
+    </h1>
+    
+    <p class="hero-subtitle">
+      Профессиональный подбор автомобилей с пробегом. 
+      Гарантия качества, честные цены и индивидуальный подход к каждому клиенту.
+    </p>
+    
+    <div class="hero-buttons">
+      <a class="btn btn-primary" routerLink="/cars/search">
+        <i class="fas fa-search me-2"></i>
+        Найти автомобиль
+      </a>
+      <button class="btn btn-outline" (click)="openContactUsModal()">
+        <i class="fas fa-phone me-2"></i>
+        Связаться с нами
+      </button>
+    </div>
+  </div>
+
+  <!-- Правая колонка - особенности -->
+  <div class="hero-right">
+    <div class="hero-features">
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="feature-title">Гарантия качества</div>
+        <div class="feature-description">Полная проверка каждого автомобиля перед продажей</div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-dollar-sign"></i>
+        </div>
+        <div class="feature-title">Честные цены</div>
+        <div class="feature-description">Прозрачное ценообразование без скрытых платежей</div>
+      </div>
+      
+      <div class="feature-card">
+        <div class="feature-icon">
+          <i class="fas fa-headset"></i>
+        </div>
+        <div class="feature-title">Поддержка 24/7</div>
+        <div class="feature-description">Круглосуточная поддержка и консультации</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Individual Offers Section -->
+<section class="individual-offers-section">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">
+        <i class="fas fa-star me-3"></i>
+        Индивидуальные предложения для вас
+      </h2>
+      <p class="section-subtitle">Закажите машину, которая уже в дороге. Уменьшите время ожидания и сэкономьте на цене</p>
+    </div>
+    
+    <!-- Плавающие элементы -->
+    <div class="floating-elements">
+      <div class="floating-element element-1"></div>
+      <div class="floating-element element-2"></div>
+      <div class="floating-element element-3"></div>
+    </div>
+    
+    <div class="offers-content">
+      <!-- Левая часть - информация -->
+      <div class="offers-info">
+        <div class="info-card">
+          <div class="info-icon">
+            <i class="fas fa-shipping-fast"></i>
+          </div>
+          <h3 class="info-title">
+            Индивидуальные <span class="accent">предложения</span>
+          </h3>
+          <p class="info-description">
+            Мы подбираем автомобили специально для вас из тех, что уже находятся в пути. 
+            Это позволяет значительно сократить время ожидания и получить лучшую цену.
+          </p>
+          <div class="info-features">
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="feature-text">Быстрая доставка</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div class="feature-text">Экономия до 15%</div>
+            </div>
+            <div class="feature-item">
+              <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
+              </div>
+              <div class="feature-text">Гарантия качества</div>
+            </div>
+          </div>
+          <button class="cta-button" (click)="openContactUsModal()">
+            <i class="fas fa-phone me-2"></i>
+            Заказать автомобиль
+          </button>
+        </div>
+      </div>
+      
+      <!-- Правая часть - примеры автомобилей -->
+      <div class="offers-cars">
+        @for (car of specialOfferCars.slice(0, 4); track car.id; let index = $index) {
+          <div class="car-example">
+            <div class="status-badge">
+              В пути
+            </div>
+            <div class="car-image">
+              @if (car.files && car.files.length > 0) {
+                <img [ngSrc]="appService.getFileUrl(car.files[0])" 
+                     [alt]="car.brand + ' ' + car.model"
+                     width="300" 
+                     height="200">
+              }
+            </div>
+            <div class="car-details">
+              <h4 class="car-title">{{ car.brand }} {{ car.model }} {{ car.year }}</h4>
+              <div class="car-price">{{ car.discountedPrice | currency: brandConfig.currency : "symbol" : "1.0-0" }}</div>
+              <div class="car-specs">
+                <div class="spec">
+                  <i class="fas fa-tachometer-alt"></i>
+                  {{ car.mileage }} км
+                </div>
+                <div class="spec">
+                  <i class="fas fa-cog"></i>
+                  {{ car.engine }} л
+                </div>
+              </div>
+              <div class="arrival-time">
+                <i class="fas fa-clock"></i>
+                Прибытие через 3-5 дней
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Service Guarantee Section -->
+<section class="service-guarantee-section">
+  <div class="container">
+    <div class="guarantee-content">
+      <div class="guarantee-shield">
+        <div class="shield-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <div class="shield-glow"></div>
+        <div class="shield-particles">
+          <div class="particle particle-1"></div>
+          <div class="particle particle-2"></div>
+          <div class="particle particle-3"></div>
+          <div class="particle particle-4"></div>
+        </div>
+      </div>
+      <div class="guarantee-text">
+        <h3 class="guarantee-title">Премиум сервис</h3>
+        <p class="guarantee-description">
+          Мы предлагаем <strong>эксклюзивные условия</strong> для наших клиентов: 
+          <strong>бесплатная доставка по всей России</strong>, 
+          <strong>расширенная гарантия до 12 месяцев</strong> и 
+          <strong>персональный менеджер</strong> для каждого покупателя.
+        </p>
+        <div class="guarantee-features">
+          <div class="feature-item">
+            <i class="fas fa-shipping-fast"></i>
+            <span>Бесплатная доставка по России</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-shield-alt"></i>
+            <span>Гарантия до 12 месяцев</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-user-tie"></i>
+            <span>Персональный менеджер</span>
+          </div>
+          <div class="feature-item">
+            <i class="fas fa-tools"></i>
+            <span>Бесплатное ТО на год</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Section -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-content">
+      <h2 class="cta-title">Готовы найти свой идеальный автомобиль?</h2>
+      <p class="cta-subtitle">Свяжитесь с нами прямо сейчас и получите персональную консультацию</p>
+      <div class="cta-buttons">
+        <button class="btn btn-warning btn-lg" (click)="openContactUsModal()">
+          <i class="fas fa-phone me-2"></i>
+          {{ brandConfig.phone }}
+        </button>
+        <a class="btn btn-outline-light btn-lg" routerLink="/cars/search">
+          <i class="fas fa-car me-2"></i>
+          Посмотреть все автомобили
+        </a>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,111 @@
+<div class="team-page">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <h1>Наша <span class="highlight">команда</span></h1>
+      <p class="subtitle">Профессионалы с многолетним опытом в сфере автопригона</p>
+      <div class="stats">
+        <div class="stat-item">
+          <div class="number">12+</div>
+          <div class="label">лет опыта</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">500+</div>
+          <div class="label">довольных клиентов</div>
+        </div>
+        <div class="stat-item">
+          <div class="number">100%</div>
+          <div class="label">гарантия качества</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Grid -->
+  <section class="team-grid-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Знакомьтесь с нашей командой</h2>
+        <p>Каждый член нашей команды - эксперт в своей области, работающий для вашего комфорта</p>
+      </div>
+
+      <div class="team-grid">
+        <div class="team-member" *ngFor="let member of teamMembers">
+          <div class="member-photo">
+            <img [src]="member.photo" [alt]="member.name">
+            <div class="experience-badge">{{ member.experience }}</div>
+          </div>
+          <div class="member-info">
+            <h3>{{ member.name }}</h3>
+            <p class="position">{{ member.position }}</p>
+            <p class="bio">{{ member.bio }}</p>
+            <div class="skills">
+              <span class="skill-tag" *ngFor="let skill of member.skills">{{ skill }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values Section -->
+  <section class="values-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>Наши ценности</h2>
+        <p>Принципы, которые лежат в основе нашей работы</p>
+      </div>
+
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+              <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+          </div>
+          <h3>Клиентоориентированность</h3>
+          <p>Ваши интересы - наш приоритет. Всегда готовы пойти навстречу</p>
+        </div>
+
+        <div class="value-card">
+          <div class="icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M20 12v10H4V12"></path>
+              <path d="M2 7h20v5H2z"></path>
+              <path d="M12 22V7"></path>
+              <path d="M5 5h3v2H5z"></path>
+              <path d="M2 5h3v2H2z"></path>
+              <path d="M19 5h3v2h-3z"></path>
+            </svg>
+          </div>
+          <h3>Профессионализм</h3>
+          <p>Глубокие знания рынка и многолетний опыт работы</p>
+        </div>
+
+        <div class="value-card">
+          <div class="icon">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4h-6"></path>
+              <path d="M12 18V6"></path>
+            </svg>
+          </div>
+          <h3>Прозрачность</h3>
+          <p>Честные цены без скрытых комиссий и платежей</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>Готовы подобрать автомобиль вашей мечты?</h2>
+        <p>Свяжитесь с нами сегодня и получите персональную консультацию</p>
+        <button class="cta-button" (click)="openContactUsModal()">Оставить заявку</button>
+      </div>
+    </div>
+  </section>
+</div>

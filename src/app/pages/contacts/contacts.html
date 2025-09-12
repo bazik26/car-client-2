@@ -1,0 +1,208 @@
+<div class="contacts">
+  <div class="container">
+    <h1>Как нас найти и связаться</h1>
+    
+    <div class="contacts-content">
+      <!-- Контактная информация -->
+      <div class="contact-info-section">
+        <h2>Контактная информация</h2>
+        
+        <div class="contact-cards">
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-phone"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Телефон</h3>
+              <a href="{{ brandConfig.phoneLink }}" class="contact-link">
+                {{ brandConfig.phone }}
+              </a>
+              <p>Звоните нам в рабочее время с 9:00 до 18:00</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Email</h3>
+              <a href="mailto:{{ brandConfig.email }}" class="contact-link">
+                {{ brandConfig.email }}
+              </a>
+              <p>Напишите нам, и мы ответим в течение 24 часов</p>
+            </div>
+          </div>
+
+          <div class="contact-card">
+            <div class="contact-icon">
+              <i class="fas fa-clock"></i>
+            </div>
+            <div class="contact-details">
+              <h3>Режим работы</h3>
+              <p class="contact-text">Пн-Пт: 9:00 - 18:00</p>
+              <p class="contact-text">Сб: 10:00 - 16:00</p>
+              <p class="contact-text">Вс: выходной</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Юридическая информация -->
+      <div class="legal-info-section">
+        <h2>Юридическая информация</h2>
+        
+        <div class="legal-info">
+          <div class="legal-item">
+            <strong>Полное наименование:</strong>
+            <span>Общество с ограниченной ответственностью "ВАМ"</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>Сокращенное наименование:</strong>
+            <span>ООО "ВАМ"</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>ОГРН:</strong>
+            <span>1046405511921</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>ИНН:</strong>
+            <span>6455038584</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>КПП:</strong>
+            <span>645301001</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>Дата регистрации:</strong>
+            <span>19.11.2004</span>
+          </div>
+          
+          <div class="legal-item">
+            <strong>Юридический адрес:</strong>
+            <span>410033, Саратовская область, город Саратов, пр-кт им 50 лет Октября, д.101</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Карта -->
+      <div class="map-section">
+        <h2>Наше местоположение</h2>
+        <p>Мы находимся в Саратове. Посетите нас или свяжитесь для получения дополнительной информации.</p>
+        
+        <div class="map-container">
+          <iframe 
+            [src]="mapUrl" 
+            width="100%" 
+            height="400" 
+            frameborder="0"
+            allowfullscreen="true"
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Форма обратной связи -->
+      <div class="contact-form-section">
+        <h2>Свяжитесь с нами</h2>
+        <p>Оставьте заявку, и мы свяжемся с вами в ближайшее время</p>
+        
+        <form class="contact-form" (ngSubmit)="submitContactForm()" #contactFormRef="ngForm">
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              [(ngModel)]="contactForm.name"
+              required>
+          </div>
+          
+          <div class="form-group">
+            <label for="phone">Телефон *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              [(ngModel)]="contactForm.phone"
+              required>
+          </div>
+          
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email"
+              [(ngModel)]="contactForm.email">
+          </div>
+          
+          <div class="form-group">
+            <label for="message">Сообщение *</label>
+            <textarea 
+              id="message" 
+              name="message" 
+              rows="5" 
+              [(ngModel)]="contactForm.message"
+              required 
+              placeholder="Расскажите, какой автомобиль вас интересует..."></textarea>
+          </div>
+          
+          <button 
+            type="submit" 
+            class="submit-btn"
+            [disabled]="isSubmitting || !contactFormRef.form.valid">
+            <i class="fas fa-paper-plane" *ngIf="!isSubmitting"></i>
+            <i class="fas fa-spinner fa-spin" *ngIf="isSubmitting"></i>
+            {{ isSubmitting ? 'Отправляем...' : 'Отправить заявку' }}
+          </button>
+        </form>
+      </div>
+
+      <!-- Дополнительная информация -->
+      <div class="additional-info">
+        <h2>Почему выбирают нас</h2>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h3>Надежность</h3>
+            <p>Более 12 лет успешной работы на рынке автомобилей</p>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-handshake"></i>
+            </div>
+            <h3>Честность</h3>
+            <p>Прозрачные условия сотрудничества без скрытых платежей</p>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-tools"></i>
+            </div>
+            <h3>Сервис</h3>
+            <p>Полный цикл услуг от подбора до сервисного обслуживания</p>
+          </div>
+          
+          <div class="info-item">
+            <div class="info-icon">
+              <i class="fas fa-globe"></i>
+            </div>
+            <h3>Международный опыт</h3>
+            <p>Работаем с поставщиками из Китая, США и Европы</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

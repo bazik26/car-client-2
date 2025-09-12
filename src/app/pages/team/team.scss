@@ -1,0 +1,1214 @@
+.team-page {
+  // Hero Section
+  .hero-section {
+    padding: 4rem 1rem;
+    text-align: center;
+    color: white;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7));
+    
+    @media (min-width: 768px) {
+      padding: 6rem 2rem;
+    }
+    
+    @media (min-width: 1200px) {
+      padding: 8rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+      
+      @media (min-width: 768px) {
+        font-size: 3rem;
+        margin-bottom: 1.5rem;
+      }
+      
+      @media (min-width: 1200px) {
+        font-size: 3.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .highlight {
+        color: var(--green-primary);
+      }
+    }
+
+    .subtitle {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      opacity: 0.9;
+      line-height: 1.5;
+      
+      @media (min-width: 768px) {
+        font-size: 1.3rem;
+        margin-bottom: 3rem;
+      }
+      
+      @media (min-width: 1200px) {
+        font-size: 1.5rem;
+        margin-bottom: 3rem;
+      }
+    }
+
+    .stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+      
+      @media (min-width: 768px) {
+        flex-direction: row;
+        gap: 3rem;
+        margin-top: 3rem;
+      }
+      
+      @media (min-width: 1200px) {
+        gap: 4rem;
+        margin-top: 4rem;
+      }
+
+      .stat-item {
+        text-align: center;
+        
+        .number {
+          font-size: 2.5rem;
+          font-weight: bold;
+          color: var(--green-primary);
+          margin-bottom: 0.5rem;
+          
+          @media (min-width: 768px) {
+            font-size: 3rem;
+            margin-bottom: 0.75rem;
+          }
+          
+          @media (min-width: 1200px) {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+          }
+        }
+
+        .label {
+          font-size: 1rem;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          color: var(--gray-darker);
+          
+          @media (min-width: 768px) {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+  }
+
+  // Team Grid Section
+  .team-grid-section {
+    padding: 3rem 1rem;
+    background-color: var(--black-2);
+    
+    @media (min-width: 768px) {
+      padding: 5rem 2rem;
+    }
+    
+    @media (min-width: 1200px) {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      
+      @media (min-width: 768px) {
+        margin-bottom: 4rem;
+      }
+      
+      @media (min-width: 1200px) {
+        margin-bottom: 5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: var(--green-primary);
+        margin-bottom: 1rem;
+        
+        @media (min-width: 768px) {
+          font-size: 2.25rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        opacity: 0.8;
+        line-height: 1.5;
+        color: var(--gray-darker);
+        
+        @media (min-width: 768px) {
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+      
+      @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    .team-member {
+      background: var(--white);
+      box-shadow: 0 4px 12px var(--shadow-light);
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid var(--gray-medium);
+      
+      @media (min-width: 768px) {
+        border-radius: 15px;
+      }
+      
+      @media (min-width: 1200px) {
+        &:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+          border-color: var(--green-primary);
+        }
+      }
+
+      .member-photo {
+        position: relative;
+        height: 250px;
+        overflow: hidden;
+        
+        @media (min-width: 768px) {
+          height: 300px;
+        }
+        
+        @media (min-width: 1200px) {
+          height: 350px;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          transition: transform 0.5s ease;
+        }
+
+        .experience-badge {
+          position: absolute;
+          top: 1rem;
+          right: 1rem;
+          background: var(--green-primary);
+          color: var(--black);
+          padding: 0.5rem 1rem;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          font-weight: bold;
+          
+          @media (min-width: 768px) {
+            padding: 0.75rem 1.25rem;
+            font-size: 0.9rem;
+          }
+        }
+
+        .social-links {
+          position: absolute;
+          bottom: 1rem;
+          left: 1rem;
+          display: flex;
+          gap: 0.5rem;
+          
+          @media (min-width: 768px) {
+            gap: 0.75rem;
+          }
+
+          a {
+            width: 35px;
+            height: 35px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            
+            @media (min-width: 768px) {
+              width: 40px;
+              height: 40px;
+            }
+            
+            @media (min-width: 1200px) {
+              &:hover {
+                background: var(--green-primary);
+                transform: scale(1.1);
+              }
+            }
+
+            img {
+              width: 20px;
+              height: 20px;
+              
+              @media (min-width: 768px) {
+                width: 22px;
+                height: 22px;
+              }
+            }
+          }
+        }
+      }
+
+      .member-info {
+        padding: 1.5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        
+        @media (min-width: 768px) {
+          padding: 2rem;
+        }
+        
+        @media (min-width: 1200px) {
+          padding: 2.5rem;
+        }
+
+        h3 {
+          font-size: 1.25rem;
+          margin-bottom: 0.5rem;
+          color: var(--gray-darker);
+          
+          @media (min-width: 768px) {
+            font-size: 1.4rem;
+            margin-bottom: 0.75rem;
+          }
+          
+          @media (min-width: 1200px) {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+        }
+
+        .position {
+          font-size: 1rem;
+          color: var(--green-primary);
+          margin-bottom: 1rem;
+          font-weight: 600;
+          
+          @media (min-width: 768px) {
+            font-size: 1.1rem;
+            margin-bottom: 1.25rem;
+          }
+          
+          @media (min-width: 1200px) {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+          }
+        }
+
+        .bio {
+          font-size: 0.9rem;
+          line-height: 1.5;
+          opacity: 0.8;
+          color: var(--gray-darker);
+          margin-bottom: 1.5rem;
+          flex: 1;
+          
+          @media (min-width: 768px) {
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+          }
+          
+          @media (min-width: 1200px) {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+          }
+        }
+
+        .skills {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 0.5rem;
+          
+          @media (min-width: 768px) {
+            gap: 0.75rem;
+          }
+
+          .skill-tag {
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--green-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(46, 125, 50, 0.3);
+            
+            @media (min-width: 768px) {
+              padding: 0.75rem 1.25rem;
+              font-size: 0.9rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Values Section
+  .values-section {
+    padding: 3rem 1rem;
+    
+    @media (min-width: 768px) {
+      padding: 5rem 2rem;
+    }
+    
+    @media (min-width: 1200px) {
+      padding: 6rem 2rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      
+      @media (min-width: 768px) {
+        margin-bottom: 4rem;
+      }
+      
+      @media (min-width: 1200px) {
+        margin-bottom: 5rem;
+      }
+
+      h2 {
+        font-size: 2rem;
+        color: var(--green-primary);
+        margin-bottom: 1rem;
+        
+        @media (min-width: 768px) {
+          font-size: 2.25rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        opacity: 0.8;
+        line-height: 1.5;
+        color: var(--gray-darker);
+        
+        @media (min-width: 768px) {
+          font-size: 1.1rem;
+          line-height: 1.6;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      
+      @media (min-width: 768px) {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+      }
+      
+      @media (min-width: 1200px) {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 3rem;
+      }
+    }
+
+    .value-card {
+      background: var(--white);
+      box-shadow: 0 4px 12px var(--shadow-light);
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+      border: 1px solid var(--gray-medium);
+      
+      @media (min-width: 768px) {
+        padding: 2.5rem 2rem;
+        border-radius: 15px;
+      }
+      
+      @media (min-width: 1200px) {
+        padding: 3rem 2.5rem;
+        
+        &:hover {
+          transform: translateY(-10px);
+          border-color: var(--green-primary);
+        }
+      }
+
+      .icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(46, 125, 50, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 1.5rem;
+        
+        @media (min-width: 768px) {
+          width: 70px;
+          height: 70px;
+          margin-bottom: 2rem;
+        }
+        
+        @media (min-width: 1200px) {
+          width: 80px;
+          height: 80px;
+          margin-bottom: 2.5rem;
+        }
+
+        svg {
+          color: var(--green-primary);
+          width: 30px;
+          height: 30px;
+          
+          @media (min-width: 768px) {
+            width: 35px;
+            height: 35px;
+          }
+          
+          @media (min-width: 1200px) {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+
+      h3 {
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+        color: var(--gray-darker);
+        
+        @media (min-width: 768px) {
+          font-size: 1.4rem;
+          margin-bottom: 1.25rem;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 1.6rem;
+          margin-bottom: 1.5rem;
+        }
+      }
+
+      p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+        opacity: 0.8;
+        color: var(--gray-darker);
+        
+        @media (min-width: 768px) {
+          font-size: 1rem;
+          line-height: 1.6;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+
+  // CTA Section
+  .cta-section {
+    padding: 3rem 1rem;
+    background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8));
+    text-align: center;
+    color: white;
+    
+    @media (min-width: 768px) {
+      padding: 5rem 2rem;
+    }
+    
+    @media (min-width: 1200px) {
+      padding: 6rem 2rem;
+    }
+
+    .cta-content {
+      max-width: 800px;
+      margin: 0 auto;
+
+      h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--green-primary);
+        
+        @media (min-width: 768px) {
+          font-size: 2.25rem;
+          margin-bottom: 1.5rem;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 2.5rem;
+          margin-bottom: 2rem;
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        opacity: 0.8;
+        margin-bottom: 2rem;
+        line-height: 1.5;
+        
+        @media (min-width: 768px) {
+          font-size: 1.1rem;
+          margin-bottom: 3rem;
+        }
+        
+        @media (min-width: 1200px) {
+          font-size: 1.2rem;
+          margin-bottom: 4rem;
+        }
+      }
+
+      .cta-button {
+        background: var(--green-primary);
+        color: var(--black);
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        min-height: 48px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        
+        @media (min-width: 768px) {
+          padding: 1.25rem 2.5rem;
+          font-size: 1.1rem;
+          min-height: 52px;
+          border-radius: 10px;
+        }
+        
+        @media (min-width: 1200px) {
+          padding: 1.5rem 3rem;
+          font-size: 1.2rem;
+          min-height: 56px;
+          border-radius: 12px;
+          
+          &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+          }
+        }
+        
+        &:active {
+          @media (max-width: 1199.98px) {
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Анимации для страницы "Команда"
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  70% {
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: rotate(-200deg) scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  10%, 30%, 50%, 70%, 90% {
+    transform: translateX(-5px);
+  }
+  20%, 40%, 60%, 80% {
+    transform: translateX(5px);
+  }
+}
+
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  14% {
+    transform: scale(1.1);
+  }
+  28% {
+    transform: scale(1);
+  }
+  42% {
+    transform: scale(1.1);
+  }
+  70% {
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Применяем анимации к элементам
+.team-page {
+  .hero-section {
+    h1 {
+      animation: slideInFromTop 0.8s ease-out;
+    }
+    
+    .subtitle {
+      animation: slideInFromTop 0.8s ease-out 0.2s both;
+    }
+    
+    .stats {
+      .stat-item {
+        animation: bounceIn 0.8s ease-out both;
+        
+        &:nth-child(1) { animation-delay: 0.4s; }
+        &:nth-child(2) { animation-delay: 0.6s; }
+        &:nth-child(3) { animation-delay: 0.8s; }
+        
+        .number {
+          animation: heartbeat 2s ease-in-out infinite 1.2s;
+        }
+      }
+    }
+  }
+  
+  .team-grid-section {
+    .section-header {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .team-member {
+      animation: slideInFromLeft 0.8s ease-out both;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      &:nth-child(1) { animation-delay: 0.1s; }
+      &:nth-child(2) { animation-delay: 0.3s; }
+      &:nth-child(3) { animation-delay: 0.5s; }
+      &:nth-child(4) { animation-delay: 0.7s; }
+      
+      .member-photo {
+        animation: scaleIn 0.6s ease-out 0.3s both;
+        
+        img {
+          transition: transform 0.5s ease-out;
+        }
+        
+        .experience-badge {
+          animation: bounceIn 0.6s ease-out 0.8s both;
+        }
+      }
+      
+      .member-info {
+        h3 {
+          animation: slideInFromRight 0.6s ease-out 0.4s both;
+        }
+        
+        .position {
+          animation: slideInFromRight 0.6s ease-out 0.5s both;
+        }
+        
+        .bio {
+          animation: slideInFromRight 0.6s ease-out 0.6s both;
+        }
+        
+        .skills {
+          animation: slideInFromRight 0.6s ease-out 0.7s both;
+          
+          .skill-tag {
+            animation: scaleIn 0.4s ease-out both;
+            
+            &:nth-child(1) { animation-delay: 0.8s; }
+            &:nth-child(2) { animation-delay: 0.9s; }
+            &:nth-child(3) { animation-delay: 1.0s; }
+          }
+        }
+      }
+      
+      @media (min-width: 1200px) {
+        &:hover {
+          transform: translateY(-15px) scale(1.02);
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+          
+          .member-photo img {
+            transform: scale(1.1);
+          }
+          
+          .experience-badge {
+            animation: shake 0.5s ease-in-out;
+          }
+          
+          .skills .skill-tag {
+            animation: pulse 1s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+  
+  .values-section {
+    .section-header {
+      animation: fadeInUp 0.8s ease-out;
+    }
+    
+    .value-card {
+      animation: slideInFromBottom 0.8s ease-out both;
+      transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      
+      &:nth-child(1) { animation-delay: 0.1s; }
+      &:nth-child(2) { animation-delay: 0.3s; }
+      &:nth-child(3) { animation-delay: 0.5s; }
+      
+      .icon {
+        animation: rotateIn 0.8s ease-out 0.4s both;
+        
+        svg {
+          transition: transform 0.3s ease-out;
+        }
+      }
+      
+      h3 {
+        animation: slideInFromBottom 0.6s ease-out 0.6s both;
+      }
+      
+      p {
+        animation: slideInFromBottom 0.6s ease-out 0.7s both;
+      }
+      
+      @media (min-width: 1200px) {
+        &:hover {
+          transform: translateY(-12px) scale(1.03);
+          box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+          
+          .icon {
+            animation: heartbeat 1.5s ease-in-out infinite;
+            
+            svg {
+              transform: rotate(5deg) scale(1.1);
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  .cta-section {
+    .cta-content {
+      animation: fadeInUp 0.8s ease-out;
+      
+      h2 {
+        animation: slideInFromTop 0.8s ease-out 0.2s both;
+      }
+      
+      p {
+        animation: slideInFromTop 0.8s ease-out 0.4s both;
+      }
+      
+      .cta-button {
+        animation: bounceIn 0.8s ease-out 0.6s both;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        
+        @media (min-width: 1200px) {
+          &:hover {
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(46, 125, 50, 0.4);
+            animation: heartbeat 1.5s ease-in-out infinite;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Анимации для появления при скролле
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  
+  &.animate {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Специальные анимации для фото команды
+.team-member .member-photo {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.1), transparent);
+    transition: left 0.8s ease-out;
+    z-index: 1;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.1) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+  }
+  
+  &:hover::after {
+    opacity: 1;
+  }
+}
+
+// Анимации для навыков
+.skill-tag {
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.2), transparent);
+    transition: left 0.6s ease-out;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  @media (min-width: 1200px) {
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+    }
+  }
+}
+
+// Анимации для иконок ценностей
+.value-card .icon {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(46, 125, 50, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.6s ease-out;
+  }
+  
+  &:hover::after {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+// Анимации для заголовков
+.value-card h3,
+.team-member h3 {
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--green-primary);
+    transition: width 0.4s ease-out;
+  }
+  
+  &:hover::after {
+    width: 100%;
+  }
+}
+
+// Анимации для фона секций
+.hero-section,
+.team-grid-section,
+.values-section,
+.cta-section {
+  position: relative;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(46, 125, 50, 0.03) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.6s ease-out;
+  }
+  
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+// Анимации для мобильных устройств
+@media (max-width: 767.98px) {
+  .team-page {
+    .hero-section {
+      .stats .stat-item {
+        animation: fadeInUp 0.6s ease-out both;
+        
+        &:nth-child(1) { animation-delay: 0.2s; }
+        &:nth-child(2) { animation-delay: 0.4s; }
+        &:nth-child(3) { animation-delay: 0.6s; }
+      }
+    }
+    
+    .team-member {
+      animation: fadeInUp 0.6s ease-out both;
+      
+      &:nth-child(1) { animation-delay: 0.1s; }
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.3s; }
+      &:nth-child(4) { animation-delay: 0.4s; }
+      
+      .member-photo,
+      .member-info h3,
+      .member-info .position,
+      .member-info .bio,
+      .member-info .skills {
+        animation: none;
+      }
+    }
+    
+    .value-card {
+      animation: fadeInUp 0.6s ease-out both;
+      
+      &:nth-child(1) { animation-delay: 0.1s; }
+      &:nth-child(2) { animation-delay: 0.2s; }
+      &:nth-child(3) { animation-delay: 0.3s; }
+      
+      .icon,
+      h3,
+      p {
+        animation: none;
+      }
+    }
+    
+    .cta-content {
+      animation: fadeInUp 0.6s ease-out;
+      
+      h2,
+      p,
+      .cta-button {
+        animation: none;
+      }
+    }
+  }
+}
+
+// Touch-friendly улучшения для мобильных
+@media (max-width: 767.98px) {
+  .team-page {
+    .team-member,
+    .value-card,
+    .cta-button,
+    .social-links a {
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    // Улучшаем скролл на мобильных
+    section {
+      -webkit-overflow-scrolling: touch;
+    }
+    
+    // Убираем hover эффекты на мобильных
+    .team-member:hover,
+    .value-card:hover,
+    .cta-button:hover {
+      transform: none;
+      box-shadow: none;
+    }
+  }
+}

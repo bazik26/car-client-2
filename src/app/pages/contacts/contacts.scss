@@ -1,0 +1,317 @@
+.contacts {
+  padding: 2rem 0;
+  min-height: 80vh;
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 3rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #444;
+    margin: 2rem 0 1.5rem 0;
+    border-bottom: 2px solid #217e02;
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #555;
+    margin-bottom: 0.5rem;
+  }
+
+  .contacts-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  // Контактная информация
+  .contact-info-section {
+    .contact-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .contact-card {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      }
+
+      .contact-icon {
+        background: #217e02;
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+
+      .contact-details {
+        flex: 1;
+
+        .contact-link {
+          color: #217e02;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1.1rem;
+          display: block;
+          margin-bottom: 0.5rem;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+
+        .contact-text {
+          color: #666;
+          margin: 0.25rem 0;
+        }
+
+        p {
+          color: #666;
+          margin: 0;
+          font-size: 0.9rem;
+        }
+      }
+    }
+  }
+
+  // Юридическая информация
+  .legal-info-section {
+    .legal-info {
+      background: #f8f9fa;
+      padding: 2rem;
+      border-radius: 12px;
+      border-left: 4px solid #217e02;
+
+      .legal-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.75rem 0;
+        border-bottom: 1px solid #e9ecef;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        strong {
+          color: #217e02;
+          font-weight: 600;
+          min-width: 200px;
+        }
+
+        span {
+          color: #333;
+          text-align: right;
+          flex: 1;
+        }
+      }
+    }
+  }
+
+  // Карта
+  .map-section {
+    .map-container {
+      margin-top: 1.5rem;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+
+      iframe {
+        display: block;
+        border: none;
+      }
+    }
+  }
+
+  // Форма обратной связи
+  .contact-form-section {
+    .contact-form {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-top: 1.5rem;
+
+      .form-group {
+        margin-bottom: 1.5rem;
+
+        label {
+          display: block;
+          margin-bottom: 0.5rem;
+          color: #333;
+          font-weight: 600;
+        }
+
+        input, textarea {
+          width: 100%;
+          padding: 0.75rem;
+          border: 2px solid #e9ecef;
+          border-radius: 8px;
+          font-size: 1rem;
+          transition: border-color 0.3s ease;
+
+          &:focus {
+            outline: none;
+            border-color: #217e02;
+          }
+
+          &::placeholder {
+            color: #999;
+          }
+        }
+
+        textarea {
+          resize: vertical;
+          min-height: 120px;
+        }
+      }
+
+      .submit-btn {
+        background: #217e02;
+        color: white;
+        border: none;
+        padding: 1rem 2rem;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        transition: background-color 0.3s ease;
+
+        &:hover {
+          background: #1a6b02;
+        }
+
+        i {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  // Дополнительная информация
+  .additional-info {
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .info-item {
+      text-align: center;
+      padding: 2rem 1rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      .info-icon {
+        background: #217e02;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        margin: 0 auto 1rem auto;
+      }
+
+      h3 {
+        color: #333;
+        margin-bottom: 1rem;
+      }
+
+      p {
+        color: #666;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  // Адаптивность
+  @media (max-width: 768px) {
+    padding: 1rem 0;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+    }
+
+    .contact-cards {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-card {
+      padding: 1.5rem;
+    }
+
+    .legal-info {
+      padding: 1.5rem;
+
+      .legal-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+
+        strong {
+          min-width: auto;
+        }
+
+        span {
+          text-align: left;
+        }
+      }
+    }
+
+    .contact-form {
+      padding: 1.5rem;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

@@ -1,0 +1,1162 @@
+// Современный хедер модального окна
+.modern-modal-header {
+  position: relative;
+  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+  padding: 2rem;
+  border-radius: 16px 16px 0 0;
+  overflow: hidden;
+
+  .header-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    overflow: hidden;
+
+    .decoration-circle {
+      position: absolute;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(46, 125, 50, 0.1), rgba(21, 101, 192, 0.1));
+      animation: modalDecorationFloat 8s ease-in-out infinite;
+
+      &.circle-1 {
+        width: 80px;
+        height: 80px;
+        top: -40px;
+        right: 10%;
+        animation-delay: 0s;
+      }
+
+      &.circle-2 {
+        width: 60px;
+        height: 60px;
+        top: -30px;
+        right: 20%;
+        animation-delay: 2s;
+      }
+    }
+
+    .decoration-line {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(46, 125, 50, 0.2), transparent);
+      animation: modalDecorationLine 10s ease-in-out infinite;
+    }
+  }
+
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
+
+    .header-icon {
+      width: 60px;
+      height: 60px;
+      background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+      animation: modalIconFloat 3s ease-in-out infinite;
+
+      i {
+        font-size: 1.5rem;
+        color: var(--white);
+      }
+    }
+
+    .header-text {
+      .modal-title {
+        font-size: 1.75rem;
+        font-weight: 800;
+        color: var(--blue-dark);
+        margin-bottom: 0.5rem;
+        line-height: 1.2;
+      }
+
+      .modal-subtitle {
+        font-size: 1rem;
+        color: var(--gray-dark);
+        margin: 0;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .modern-close-btn {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(46, 125, 50, 0.1);
+    border: none;
+    border-radius: 12px;
+    color: var(--green-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 3;
+
+    &:hover {
+      background: var(--green-primary);
+      color: var(--white);
+      transform: scale(1.1);
+    }
+  }
+}
+
+// Современное тело модального окна
+.modern-modal-body {
+  background: var(--white);
+  padding: 2rem;
+
+  .modern-contact-form {
+    .form-section {
+      margin-bottom: 2rem;
+
+      .section-header {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+
+        i {
+          width: 24px;
+          height: 24px;
+          background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          font-size: 0.9rem;
+        }
+
+        .section-label {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: var(--blue-dark);
+          margin: 0;
+        }
+      }
+    }
+
+    .messenger-selector {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+
+      .messenger-option {
+        position: relative;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 12px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        background: rgba(255, 255, 255, 0.05);
+        min-width: 120px;
+
+        &.active, &:hover {
+          border-color: var(--green-primary);
+          background: rgba(255, 215, 0, 0.1);
+
+          label span {
+            color: var(--green-primary);
+          }
+        }
+
+        input[type="radio"] {
+          position: absolute;
+          opacity: 0;
+          width: 0;
+          height: 0;
+        }
+
+        label {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          cursor: pointer;
+
+          .telegram-logo {
+            position: relative;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .logo-icon {
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(45deg, #0088cc, #00a8ff);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              box-shadow: 
+                0 0 15px rgba(0, 136, 204, 0.4),
+                0 0 30px rgba(0, 136, 204, 0.2),
+                inset 0 0 15px rgba(255, 255, 255, 0.1);
+              animation: telegramPulse 2s ease-in-out infinite;
+              position: relative;
+              z-index: 3;
+
+              i {
+                font-size: 1.2rem;
+                color: #ffffff;
+                text-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+              }
+            }
+
+            .logo-glow {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 50px;
+              height: 50px;
+              background: radial-gradient(circle, rgba(0, 136, 204, 0.3) 0%, transparent 70%);
+              border-radius: 50%;
+              animation: telegramGlow 2s ease-in-out infinite;
+              z-index: 1;
+            }
+
+            .logo-particles {
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              width: 80px;
+              height: 80px;
+              pointer-events: none;
+
+              .particle {
+                position: absolute;
+                width: 3px;
+                height: 3px;
+                background: #0088cc;
+                border-radius: 50%;
+                animation: telegramParticleFloat 3s ease-in-out infinite;
+
+                &.particle-1 {
+                  top: 15%;
+                  left: 25%;
+                  animation-delay: 0s;
+                }
+
+                &.particle-2 {
+                  top: 60%;
+                  right: 20%;
+                  animation-delay: 0.8s;
+                }
+
+                &.particle-3 {
+                  bottom: 25%;
+                  left: 15%;
+                  animation-delay: 1.6s;
+                }
+
+                &.particle-4 {
+                  top: 35%;
+                  right: 10%;
+                  animation-delay: 2.4s;
+                }
+              }
+            }
+          }
+
+          span {
+            color: #ddd;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+          }
+        }
+      }
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-control {
+      background-color: rgba(255, 255, 255, 0.05);
+      border: 1px solid #333;
+      border-radius: 8px;
+      color: #fff;
+      padding: 12px 15px;
+      width: 100%;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: var(--green-primary);
+        box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+      }
+
+      &::placeholder {
+        color: #777;
+      }
+    }
+
+    textarea.form-control {
+      min-height: 100px;
+      resize: vertical;
+    }
+    
+    .form-text {
+      color: #777;
+      font-size: 0.8rem;
+      margin-top: 0.25rem;
+      display: block;
+      
+      @media (max-width: 767.98px) {
+        font-size: 0.75rem;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+}
+
+.modal-footer {
+  background-color: #121212;
+  border-top: 1px solid #333;
+  padding: 15px 20px;
+  border-radius: 0 0 10px 10px;
+  display: flex;
+  justify-content: space-between;
+
+  .btn {
+    border-radius: 30px;
+    padding: 10px 25px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    border: none;
+  }
+
+  .btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ddd;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      color: #fff;
+    }
+  }
+
+  .btn-primary {
+    background: var(--green-primary);
+    color: #000;
+
+    &:hover {
+      background: #ffcc00;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+    }
+  }
+}
+
+// Мобильная оптимизация для формы "Оставить заявку"
+@media (max-width: 767.98px) {
+  .modal-header {
+    padding: 1rem;
+    border-radius: 8px 8px 0 0;
+    
+    .modal-header-content {
+      max-width: 100%;
+      padding-right: 2.5rem;
+      
+      .modal-title {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+        font-weight: 600;
+      }
+      
+      p {
+        font-size: 0.85rem;
+        line-height: 1.4;
+      }
+    }
+    
+    .btn-close {
+      top: 0.75rem;
+      right: 0.75rem;
+      min-width: 40px;
+      min-height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      
+      &:hover, &:focus {
+        background: rgba(255, 255, 255, 0.1);
+      }
+      
+      &:active {
+        transform: scale(0.95);
+      }
+    }
+  }
+  
+  .modal-body {
+    padding: 1rem;
+    
+    .contact-form {
+      .form-section {
+        margin-bottom: 1.25rem;
+        
+        .form-label {
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+        }
+      }
+      
+      .messenger-selector {
+        justify-content: center;
+        gap: 0.75rem;
+        
+        .messenger-option {
+          border-radius: 10px;
+          padding: 0.75rem;
+          min-height: 70px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          
+          &.active, &:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 2px 8px rgba(255, 215, 0, 0.15);
+          }
+          
+          &:active {
+            transform: scale(0.98);
+          }
+          
+          label {
+            width: 100%;
+            text-align: center;
+            
+            .telegram-logo {
+              width: 30px;
+              height: 30px;
+              margin-bottom: 0.25rem;
+
+              .logo-icon {
+                box-shadow: 
+                  0 0 10px rgba(0, 136, 204, 0.3),
+                  0 0 20px rgba(0, 136, 204, 0.1),
+                  inset 0 0 10px rgba(255, 255, 255, 0.1);
+
+                i {
+                  font-size: 1rem;
+                }
+              }
+
+              .logo-glow {
+                width: 35px;
+                height: 35px;
+              }
+
+              .logo-particles {
+                width: 60px;
+                height: 60px;
+
+                .particle {
+                  width: 2px;
+                  height: 2px;
+                }
+              }
+            }
+            
+            span {
+              font-size: 0.8rem;
+              font-weight: 500;
+            }
+          }
+        }
+      }
+      
+      .form-group {
+        margin-bottom: 1rem;
+      }
+      
+      .form-control {
+        border-radius: 10px;
+        padding: 0.875rem;
+        min-height: 44px;
+        font-size: 16px; // Предотвращает зум на iOS
+        
+        &:focus {
+          box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.2);
+        }
+        
+        &::placeholder {
+          font-size: 0.85rem;
+        }
+      }
+      
+      textarea.form-control {
+        min-height: 100px;
+      }
+      
+      .form-text {
+        font-size: 0.75rem;
+        margin-top: 0.2rem;
+      }
+    }
+  }
+  
+  .modal-footer {
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+    flex-direction: column;
+    gap: 0.75rem;
+    
+    .btn {
+      padding: 0.75rem 1.5rem;
+      min-height: 44px;
+      font-size: 0.95rem;
+      width: 100%;
+      
+      &:hover {
+        transform: none;
+        box-shadow: none;
+      }
+      
+      &:active {
+        transform: scale(0.98);
+      }
+    }
+    
+    .btn-primary {
+      &:hover {
+        transform: translateY(-1px);
+        box-shadow: 0 2px 8px rgba(255, 215, 0, 0.2);
+      }
+    }
+  }
+  
+  // Улучшаем touch-события
+  .messenger-option,
+  .btn,
+  .btn-close {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  // Улучшаем скролл в модальном окне
+  .modal-body {
+    -webkit-overflow-scrolling: touch;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+  
+  // Убираем hover эффекты на мобильных
+  .messenger-option:hover,
+  .btn:hover {
+    transform: none;
+    box-shadow: none;
+  }
+  
+  // Улучшаем фокус для accessibility
+  .form-control:focus,
+  .btn:focus,
+  .messenger-option:focus-within {
+    outline: 2px solid var(--green-primary);
+    outline-offset: 2px;
+  }
+}
+
+// Улучшения для очень маленьких экранов
+@media (max-width: 575.98px) {
+  .modal-header {
+    padding: 0.75rem;
+    
+    .modal-header-content {
+      padding-right: 2rem;
+      
+      .modal-title {
+        font-size: 1.1rem;
+      }
+    }
+    
+    .btn-close {
+      top: 0.5rem;
+      right: 0.5rem;
+      min-width: 36px;
+      min-height: 36px;
+    }
+  }
+  
+  .modal-body {
+    padding: 0.75rem;
+    
+    .contact-form {
+      .messenger-selector {
+        justify-content: center;
+        gap: 0.5rem;
+        
+        .messenger-option {
+          min-height: 60px;
+          padding: 0.5rem;
+          
+          label .telegram-logo {
+            width: 25px;
+            height: 25px;
+
+            .logo-icon {
+              box-shadow: 
+                0 0 8px rgba(0, 136, 204, 0.3),
+                0 0 15px rgba(0, 136, 204, 0.1),
+                inset 0 0 8px rgba(255, 255, 255, 0.1);
+
+              i {
+                font-size: 0.9rem;
+              }
+            }
+
+            .logo-glow {
+              width: 30px;
+              height: 30px;
+            }
+
+            .logo-particles {
+              width: 50px;
+              height: 50px;
+
+              .particle {
+                width: 1.5px;
+                height: 1.5px;
+              }
+            }
+          }
+          
+          label span {
+            font-size: 0.75rem;
+          }
+        }
+      }
+      
+      .form-control {
+        padding: 0.75rem;
+        border-radius: 8px;
+        min-height: 40px;
+      }
+      
+      textarea.form-control {
+        min-height: 80px;
+      }
+    }
+  }
+  
+  .modal-footer {
+    padding: 0.75rem;
+    
+    .btn {
+      padding: 0.625rem 1.25rem;
+      min-height: 40px;
+      font-size: 0.9rem;
+    }
+  }
+}
+
+// Улучшения для landscape ориентации на мобильных
+@media (max-width: 767.98px) and (orientation: landscape) {
+  .modal-body {
+    max-height: 60vh;
+  }
+  
+  .messenger-selector {
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .messenger-option {
+    min-height: 50px;
+    padding: 0.5rem;
+    
+    label .telegram-logo {
+      width: 20px;
+      height: 20px;
+      margin-bottom: 0.25rem;
+
+      .logo-icon {
+        box-shadow: 
+          0 0 6px rgba(0, 136, 204, 0.3),
+          0 0 12px rgba(0, 136, 204, 0.1),
+          inset 0 0 6px rgba(255, 255, 255, 0.1);
+
+        i {
+          font-size: 0.8rem;
+        }
+      }
+
+      .logo-glow {
+        width: 25px;
+        height: 25px;
+      }
+
+      .logo-particles {
+        width: 40px;
+        height: 40px;
+
+        .particle {
+          width: 1px;
+          height: 1px;
+        }
+      }
+    }
+    
+    label span {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+// Telegram Logo Animations
+@keyframes telegramPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 
+      0 0 15px rgba(0, 136, 204, 0.4),
+      0 0 30px rgba(0, 136, 204, 0.2),
+      inset 0 0 15px rgba(255, 255, 255, 0.1);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 
+      0 0 20px rgba(0, 136, 204, 0.6),
+      0 0 40px rgba(0, 136, 204, 0.4),
+      inset 0 0 20px rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes telegramGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes telegramParticleFloat {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateY(-15px) scale(1.2);
+    opacity: 1;
+  }
+}
+
+// Современные стили для нового модального окна
+.modern-messenger-selector {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+
+  .messenger-card {
+    position: relative;
+    border: 2px solid rgba(46, 125, 50, 0.2);
+    border-radius: 16px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: var(--white);
+    min-width: 200px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    &.active {
+      border-color: var(--green-primary);
+      background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(46, 125, 50, 0.1));
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+
+      .messenger-check {
+        opacity: 1;
+        transform: scale(1);
+      }
+    }
+
+    &:hover {
+      border-color: var(--green-primary);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(46, 125, 50, 0.15);
+    }
+
+    input[type="radio"] {
+      position: absolute;
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .messenger-label {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      cursor: pointer;
+      margin: 0;
+      position: relative;
+
+      .messenger-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(135deg, #0088cc, #00a8ff);
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0, 136, 204, 0.3);
+
+        i {
+          font-size: 1.5rem;
+          color: var(--white);
+        }
+      }
+
+      .messenger-info {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+
+        .messenger-name {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: var(--blue-dark);
+          margin-bottom: 0.25rem;
+        }
+
+        .messenger-desc {
+          font-size: 0.9rem;
+          color: var(--gray-dark);
+          font-weight: 500;
+        }
+      }
+
+      .messenger-check {
+        width: 24px;
+        height: 24px;
+        background: var(--green-primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s ease;
+
+        i {
+          font-size: 0.8rem;
+          color: var(--white);
+        }
+      }
+    }
+  }
+}
+
+// Современные поля ввода
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+.form-group {
+  position: relative;
+
+  .input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    .input-icon {
+      position: absolute;
+      left: 1rem;
+      z-index: 2;
+      color: var(--gray-medium);
+      font-size: 1rem;
+      transition: color 0.3s ease;
+    }
+
+    .modern-input {
+      width: 100%;
+      padding: 1rem 1rem 1rem 3rem;
+      border: 2px solid rgba(46, 125, 50, 0.2);
+      border-radius: 12px;
+      background: var(--white);
+      color: var(--gray-darker);
+      font-size: 1rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      outline: none;
+
+      &::placeholder {
+        color: var(--gray-medium);
+        font-weight: 400;
+      }
+
+      &:focus {
+        border-color: var(--green-primary);
+        box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+
+        + .input-icon {
+          color: var(--green-primary);
+        }
+
+        + .input-focus-line {
+          width: 100%;
+        }
+      }
+    }
+
+    .input-focus-line {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--green-primary);
+      transition: width 0.3s ease;
+    }
+  }
+
+  .floating-label {
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background: var(--white);
+    padding: 0 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--green-primary);
+    z-index: 3;
+  }
+}
+
+.textarea-wrapper {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+
+  .input-icon {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    z-index: 2;
+    color: var(--gray-medium);
+    font-size: 1rem;
+    transition: color 0.3s ease;
+  }
+
+  .modern-textarea {
+    width: 100%;
+    padding: 1rem 1rem 1rem 3rem;
+    border: 2px solid rgba(46, 125, 50, 0.2);
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--gray-darker);
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    outline: none;
+    resize: vertical;
+    min-height: 120px;
+
+    &::placeholder {
+      color: var(--gray-medium);
+      font-weight: 400;
+    }
+
+    &:focus {
+      border-color: var(--green-primary);
+      box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+
+      + .input-icon {
+        color: var(--green-primary);
+      }
+
+      + .input-focus-line {
+        width: 100%;
+      }
+    }
+  }
+
+  .input-focus-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--green-primary);
+    transition: width 0.3s ease;
+  }
+}
+
+.char-counter {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+
+  .char-count {
+    color: var(--green-primary);
+    font-weight: 600;
+  }
+
+  .char-max {
+    color: var(--gray-medium);
+    margin-left: 0.25rem;
+  }
+}
+
+// Современный футер модального окна
+.modern-modal-footer {
+  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
+  border-top: 1px solid rgba(46, 125, 50, 0.1);
+  padding: 1.5rem 2rem;
+  border-radius: 0 0 16px 16px;
+
+  .footer-info {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background: rgba(46, 125, 50, 0.05);
+    border-radius: 12px;
+    border-left: 4px solid var(--green-primary);
+
+    i {
+      color: var(--green-primary);
+      font-size: 1.1rem;
+    }
+
+    span {
+      font-size: 0.9rem;
+      color: var(--gray-dark);
+      font-weight: 500;
+    }
+  }
+
+  .footer-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    .modern-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      border: none;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+
+      &.secondary {
+        background: rgba(46, 125, 50, 0.1);
+        color: var(--green-primary);
+
+        &:hover {
+          background: rgba(46, 125, 50, 0.2);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+        }
+      }
+
+      &.primary {
+        background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+        color: var(--white);
+        box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+
+        &:hover:not(:disabled) {
+          transform: translateY(-2px);
+          box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
+          background: linear-gradient(135deg, var(--green-light), var(--green-primary));
+        }
+
+        &:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+        }
+      }
+
+      i {
+        font-size: 1.1rem;
+      }
+
+      .btn-loading {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: var(--white);
+        font-size: 1.1rem;
+      }
+    }
+  }
+}
+
+// Анимации для модального окна
+@keyframes modalDecorationFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+    opacity: 0.3;
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+    opacity: 0.6;
+  }
+}
+
+@keyframes modalDecorationLine {
+  0%, 100% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes modalIconFloat {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(5deg);
+  }
+}

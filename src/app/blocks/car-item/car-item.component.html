@@ -1,0 +1,110 @@
+<!-- Современная карточка автомобиля -->
+<div class="modern-car-card">
+  <!-- Изображения автомобиля -->
+  <div class="car-image-section">
+    <div class="image-container">
+      <swiper-container 
+        slides-per-view="1" 
+        navigation="true" 
+        pagination="true" 
+        loop="false"
+        autoplay="false"
+        autoplay-delay="0"
+        autoplay-disable-on-interaction="true"
+        speed="500"
+        class="car-swiper">
+        @for (file of car.files; track file; let index = $index) {
+          <swiper-slide>
+            <img
+              height="280"
+              width="400"
+              [ngSrc]="appService.getFileUrl(file)"
+              [priority]="index === 0 && lazyPriority"
+              [alt]="car.brand + ' ' + car.model"
+              (load)="onImageLoad($event)"
+              (error)="onImageError($event)"
+            />
+          </swiper-slide>
+        }
+      </swiper-container>
+      
+      <!-- Статус автомобиля -->
+      <div class="car-status">
+        <span class="status-badge">
+          <i class="fas fa-check-circle"></i>
+          В наличии
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Информация об автомобиле -->
+  <div class="car-info-section">
+    <!-- Заголовок -->
+    <div class="car-header">
+      <a class="car-title-link" [routerLink]="['/cars', car.id]">
+        <h3 class="car-brand">{{ car.brand }}</h3>
+        <h4 class="car-model">{{ car.model }} {{ car.year }}</h4>
+      </a>
+    </div>
+
+    <!-- Основные характеристики -->
+    <div class="car-specs">
+      <div class="spec-item">
+        <div class="spec-icon">
+          <i class="fas fa-tachometer-alt"></i>
+        </div>
+        <div class="spec-content">
+          <span class="spec-label">Пробег</span>
+          <span class="spec-value">{{ car.mileage }} км</span>
+        </div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-icon">
+          <i class="fas fa-cog"></i>
+        </div>
+        <div class="spec-content">
+          <span class="spec-label">Двигатель</span>
+          <span class="spec-value">{{ car.fuel }}, {{ car.engine }} л</span>
+        </div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-icon">
+          <i class="fas fa-exchange-alt"></i>
+        </div>
+        <div class="spec-content">
+          <span class="spec-label">Коробка</span>
+          <span class="spec-value">{{ car.gearbox }}</span>
+        </div>
+      </div>
+
+      <div class="spec-item">
+        <div class="spec-icon">
+          <i class="fas fa-car-side"></i>
+        </div>
+        <div class="spec-content">
+          <span class="spec-label">Привод</span>
+          <span class="spec-value">{{ car.drive }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Цена и кнопка -->
+    <div class="car-footer">
+      <div class="price-section">
+        <span class="price-label">Цена</span>
+        <span class="price-value">{{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}</span>
+      </div>
+      
+      <a class="view-details-btn" [routerLink]="['/cars', car.id]">
+        <span class="btn-text">Подробнее</span>
+        <i class="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- Hover эффекты -->
+  <div class="card-overlay"></div>
+</div>
