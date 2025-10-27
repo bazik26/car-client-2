@@ -19,7 +19,7 @@ import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, CurrencyPipe, NgOptimizedImage],
+  imports: [RouterModule, CurrencyPipe, NgOptimizedImage, ContactUsComponent],
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
@@ -64,7 +64,13 @@ export class HomePage implements OnInit {
   }
 
   openContactUsModal() {
-    this.modal.show(ContactUsComponent);
+    console.log('ContactUs modal button clicked!');
+    try {
+      this.modal.show(ContactUsComponent);
+      console.log('Modal shown successfully');
+    } catch (error) {
+      console.error('Error showing modal:', error);
+    }
   }
 
   // Вычисляем процент скидки

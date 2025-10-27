@@ -449,6 +449,9 @@
       overflow: hidden;
       font-size: 1.1rem;
       letter-spacing: 0.5px;
+      cursor: pointer;
+      z-index: 10;
+      pointer-events: auto;
 
       &::before {
         content: '';
@@ -1218,6 +1221,8 @@
           transition: all 0.3s ease;
           position: relative;
           overflow: hidden;
+          z-index: 10;
+          pointer-events: auto;
 
           &::before {
             content: '';
@@ -1611,6 +1616,9 @@
         transition: all 0.3s ease;
         text-decoration: none;
         border: 2px solid transparent;
+        cursor: pointer;
+        z-index: 10;
+        pointer-events: auto;
 
         &.btn-white {
           background: var(--white);
