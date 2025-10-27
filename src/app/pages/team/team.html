@@ -71,24 +71,13 @@
     <div class="team-grid">
       <div class="team-member" *ngFor="let member of teamMembers; let i = index">
         <div class="member-card">
-          <div class="member-photo">
-            <img [src]="member.photo" [alt]="member.name">
-            <div class="experience-badge">
+          <div class="member-header">
+            <div class="member-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <div class="member-badge">
               <i class="fas fa-star"></i>
               {{ member.experience }}
-            </div>
-            <div class="photo-overlay">
-              <div class="social-links">
-                <a href="#" class="social-link">
-                  <i class="fab fa-telegram"></i>
-                </a>
-                <a href="#" class="social-link">
-                  <i class="fab fa-whatsapp"></i>
-                </a>
-                <a href="#" class="social-link">
-                  <i class="fas fa-envelope"></i>
-                </a>
-              </div>
             </div>
           </div>
           
