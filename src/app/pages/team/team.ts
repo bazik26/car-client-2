@@ -1,7 +1,8 @@
-import {AfterViewInit, Component, OnDestroy} from '@angular/core';
+import {AfterViewInit, Component, OnDestroy, inject, OnInit} from '@angular/core';
 import {BsModalService} from 'ngx-bootstrap/modal';
 import {ContactUsComponent} from '../../blocks/contact-us/contact-us.component';
 import {NgForOf} from '@angular/common';
+import { SEOService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-team',
@@ -12,7 +13,9 @@ import {NgForOf} from '@angular/common';
   templateUrl: './team.html',
   styleUrl: './team.scss'
 })
-export class Team implements AfterViewInit {
+export class Team implements OnInit, AfterViewInit {
+  private readonly modal = inject(BsModalService);
+  private readonly seoService = inject(SEOService);
   teamMembers = [
     {
       name: 'Александр Петров',
@@ -52,6 +55,10 @@ export class Team implements AfterViewInit {
 
   openContactUsModal() {
     this.modalService.show(ContactUsComponent);
+  }
+
+  ngOnInit() {
+    this.seoService.setSEO('team');
   }
 
   ngAfterViewInit() {

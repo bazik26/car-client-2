@@ -13,6 +13,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 import { routes } from './app.routes';
 import { AppService } from './app.service';
 import {AuthInterceptor} from './auth.interceptor';
+import { SEOService } from './services/seo.service';
+import { SitemapService } from './services/sitemap.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -26,5 +28,7 @@ export const appConfig: ApplicationConfig = {
     importProvidersFrom(BrowserAnimationsModule, ModalModule.forRoot()),
 
     AppService,
+    SEOService,
+    SitemapService,
   ],
 };

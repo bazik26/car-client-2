@@ -6,5 +6,14 @@ export const BRAND_CONFIG = {
   phoneLink: 'tel:+380636670272',
   currency: 'RUB ',
   currencySymbol: '₽ ',
-  address: 'Саратов, Россия'
+  address: 'Саратов, Россия',
+  city: 'Саратов',
+  region: 'Саратовская область',
+  country: 'Россия',
+  coordinates: {
+    latitude: 51.5406,
+    longitude: 46.0086
+  },
+  ogImage: '/public/favicon.ico',
+  website: 'https://vamauto.com'
 } as const;

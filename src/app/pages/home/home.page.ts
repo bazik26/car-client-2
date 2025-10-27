@@ -9,6 +9,7 @@ import { BsModalService } from 'ngx-bootstrap/modal';
 
 import { AppService } from '../../app.service';
 import { BRAND_CONFIG } from '../../constants';
+import { SEOService } from '../../services/seo.service';
 
 import { ContactUsComponent } from '../../blocks/contact-us/contact-us.component';
 import { RouterModule } from '@angular/router';
@@ -26,6 +27,7 @@ import { NgOptimizedImage } from '@angular/common';
 export class HomePage implements OnInit {
   public readonly modal = inject(BsModalService);
   public readonly appService = inject(AppService);
+  private readonly seoService = inject(SEOService);
   public readonly brandConfig = BRAND_CONFIG;
 
   public recentCars: any[] = []; // Последние 10 добавленных машин
@@ -33,6 +35,7 @@ export class HomePage implements OnInit {
   public isLoading = true;
 
   public ngOnInit() {
+    this.seoService.setSEO('home');
     this.loadRecentCars();
     this.loadSpecialOfferCars();
   }
