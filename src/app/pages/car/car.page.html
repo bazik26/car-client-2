@@ -33,28 +33,34 @@
             
             <div class="images-container">
               @if (car.files && car.files.length > 0) {
-                <swiper-container
-                  slides-per-view="1"
-                  navigation="true"
-                  pagination="true"
-                  loop="false"
-                  autoplay="false"
-                  autoplay-delay="0"
-                  autoplay-disable-on-interaction="true"
-                  speed="500"
-                  class="car-swiper"
-                >
-                  @for (file of car.files; track file; let index = $index) {
-                    <swiper-slide>
-                      <img 
-                        [src]="appService.getFileUrl(file)" 
-                        [alt]="car.brand + ' ' + car.model + ' - фото ' + (index + 1)"
-                        (load)="onImageLoad($event)"
-                        (error)="onImageError($event)"
-                      />
-                    </swiper-slide>
-                  }
-                </swiper-container>
+                <div class="swiper-wrapper-with-counter">
+                  <swiper-container
+                    slides-per-view="1"
+                    navigation="true"
+                    pagination="true"
+                    loop="false"
+                    autoplay="false"
+                    autoplay-delay="0"
+                    autoplay-disable-on-interaction="true"
+                    speed="500"
+                    class="car-swiper"
+                  >
+                    @for (file of car.files; track file; let index = $index) {
+                      <swiper-slide>
+                        <img
+                          [src]="appService.getFileUrl(file)"
+                          [alt]="car.brand + ' ' + car.model + ' - фото ' + (index + 1)"
+                          (load)="onImageLoad($event)"
+                          (error)="onImageError($event)"
+                        />
+                      </swiper-slide>
+                    }
+                  </swiper-container>
+                  <div class="photo-counter">
+                    <i class="fas fa-images"></i>
+                    {{ car.files?.length || 0 }} фото
+                  </div>
+                </div>
               } @else {
                 <div class="no-images-placeholder">
                   <div class="placeholder-icon">
