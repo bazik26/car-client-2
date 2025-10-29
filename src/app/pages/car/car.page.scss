@@ -71,31 +71,39 @@
     // Левая панель - изображения
     .car-images-panel {
       .images-card {
-        background: var(--white);
-        border-radius: 20px;
-        padding: 2rem;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-        border: 2px solid var(--gray-medium);
-        position: relative;
-        overflow: hidden;
+        @media (min-width: 769px) {
+          background: var(--white);
+          border-radius: 20px;
+          padding: 2rem;
+          box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+          border: 2px solid var(--gray-medium);
+          position: relative;
+          overflow: hidden;
 
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          height: 4px;
-          background: var(--gradient-primary);
+          &::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+          }
         }
 
         .images-header {
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-          margin-bottom: 2rem;
-          padding-bottom: 1rem;
-          border-bottom: 2px solid var(--gray-medium);
+          @media (min-width: 769px) {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-medium);
+          }
+
+          @media (max-width: 768px) {
+            display: none;
+          }
 
           .images-title {
             font-size: 1.5rem;
@@ -123,21 +131,73 @@
         }
 
         .images-container {
+          .swiper-wrapper-with-counter {
+            position: relative;
+
+            .photo-counter {
+              @media (max-width: 768px) {
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                background: rgba(33, 126, 2, 0.9);
+                color: var(--white);
+                padding: 0.4rem 0.8rem;
+                border-radius: 8px;
+                font-size: 0.8rem;
+                font-weight: 600;
+                z-index: 10;
+                display: flex;
+                align-items: center;
+                gap: 0.4rem;
+                backdrop-filter: blur(8px);
+                box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+                i {
+                  font-size: 0.75rem;
+                }
+              }
+
+              @media (min-width: 769px) {
+                display: none;
+              }
+            }
+          }
+
           .car-swiper {
             width: 100%;
-            height: 500px;
-            border-radius: 16px;
+
+            @media (min-width: 769px) {
+              height: 500px;
+              border-radius: 16px;
+            }
+
+            @media (max-width: 768px) {
+              height: 280px;
+              border-radius: 0;
+              border: 1px solid rgba(33, 126, 2, 0.15);
+              border-left: none;
+              border-right: none;
+            }
+
             overflow: hidden;
             position: relative;
 
             swiper-slide {
               width: 100% !important;
-              height: 500px !important;
               max-width: 100% !important;
-              max-height: 500px !important;
               position: relative;
               flex-shrink: 0;
-              
+
+              @media (min-width: 769px) {
+                height: 500px !important;
+                max-height: 500px !important;
+              }
+
+              @media (max-width: 768px) {
+                height: 280px !important;
+                max-height: 280px !important;
+              }
+
               img {
                 width: 100%;
                 height: 100%;
@@ -148,14 +208,13 @@
                 left: 0;
                 opacity: 0;
                 transition: opacity 0.3s ease;
-                
+
                 &.loaded {
                   opacity: 1;
                 }
               }
             }
           }
-        }
         }
       }
     }
@@ -636,87 +695,6 @@
         padding: 0;
       }
 
-      .car-images-panel .images-card {
-        padding: 0;
-        margin-bottom: 0;
-        background: transparent;
-        box-shadow: none;
-        border: none;
-
-        @media (max-width: 575.98px) {
-          padding: 0;
-        }
-
-        .images-header {
-          display: none;
-        }
-
-        .images-container {
-          .swiper-wrapper-with-counter {
-            position: relative;
-
-            .car-swiper {
-              height: 280px;
-              border-radius: 0;
-              overflow: hidden;
-              border: 1px solid rgba(33, 126, 2, 0.15);
-              border-left: none;
-              border-right: none;
-
-              @media (max-width: 575.98px) {
-                height: 250px;
-              }
-
-              swiper-slide {
-                height: 280px !important;
-
-                @media (max-width: 575.98px) {
-                  height: 250px !important;
-                }
-
-                img {
-                  width: 100%;
-                  height: 100%;
-                  object-fit: cover;
-                }
-              }
-            }
-
-            .photo-counter {
-              position: absolute;
-              top: 12px;
-              right: 12px;
-              background: rgba(33, 126, 2, 0.9);
-              color: var(--white);
-              padding: 0.4rem 0.8rem;
-              border-radius: 8px;
-              font-size: 0.8rem;
-              font-weight: 600;
-              z-index: 10;
-              display: flex;
-              align-items: center;
-              gap: 0.4rem;
-              backdrop-filter: blur(8px);
-              box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-
-              @media (max-width: 575.98px) {
-                top: 10px;
-                right: 10px;
-                padding: 0.35rem 0.7rem;
-                font-size: 0.75rem;
-              }
-
-              i {
-                font-size: 0.75rem;
-
-                @media (max-width: 575.98px) {
-                  font-size: 0.7rem;
-                }
-              }
-            }
-          }
-        }
-      }
 
       .car-info-panel {
         gap: 0;
@@ -1001,6 +979,7 @@
       }
     }
   }
+}
 
 // Стили для placeholder когда нет изображений
 .no-images-placeholder {
