@@ -701,7 +701,8 @@
 
       .filters-panel {
         position: static;
-        order: 2;
+        display: block !important;
+        order: 1;
 
           .filters-card {
             padding: 1.5rem;
@@ -737,7 +738,7 @@
       }
 
       .results-panel {
-        order: 1;
+        order: 2;
 
         .results-header .results-info {
           padding: 1rem 1.5rem;
