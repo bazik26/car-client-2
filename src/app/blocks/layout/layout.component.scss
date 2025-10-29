@@ -1790,7 +1790,9 @@ header {
       gap: 1rem;
       margin-bottom: 1.5rem;
       justify-content: center;
+      align-items: center;
       flex-wrap: wrap;
+      width: 100%;
 
       @media (max-width: 767.98px) {
         justify-content: center;
