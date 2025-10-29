@@ -4,6 +4,8 @@
     background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
     border-bottom: 1px solid rgba(46, 125, 50, 0.1);
     padding: 2rem;
+    border-radius: 16px 16px 0 0;
+    overflow: hidden;
 
     @media (max-width: 768px) {
       padding: 1.5rem;
@@ -12,8 +14,6 @@
     @media (max-width: 575.98px) {
       padding: 1.25rem 1rem;
     }
-  border-radius: 16px 16px 0 0;
-  overflow: hidden;
 
   .header-decoration {
     position: absolute;

@@ -1,8 +1,9 @@
 import { Component, inject } from '@angular/core';
 
 import { BsModalRef } from 'ngx-bootstrap/modal';
-import {FormsModule} from '@angular/forms';
-import {AppService} from '../../app.service';
+import { FormsModule } from '@angular/forms';
+import { NgIf } from '@angular/common';
+import { AppService } from '../../app.service';
 
 @Component({
   selector: 'app-contact-us',
@@ -10,26 +11,27 @@ import {AppService} from '../../app.service';
   templateUrl: './contact-us.component.html',
   styleUrls: ['./contact-us.component.scss'],
   imports: [
-    FormsModule
+    FormsModule,
+    NgIf
   ]
 })
 export class ContactUsComponent {
   public readonly activeModal = inject(BsModalRef);
 
   selectedMessenger: string = 'telegram';
+  isSubmitting: boolean = false;
   contactData = {
     firstName: '',
     phone: '',
     message: ''
   };
 
-
   constructor(protected readonly appService: AppService) {}
 
-
-
-
   submitContactForm() {
+    if (this.isSubmitting) return;
+    
+    this.isSubmitting = true;
     console.log('Выбран мессенджер:', this.selectedMessenger);
     console.log('Данные:', this.contactData);
 
@@ -40,9 +42,11 @@ export class ContactUsComponent {
       message: this.contactData.message
     }).subscribe({
       next: () => {
+        this.isSubmitting = false;
         this.showSuccessMessage();
       },
       error: (err) => {
+        this.isSubmitting = false;
         console.error('Ошибка отправки', err);
       }
     });
