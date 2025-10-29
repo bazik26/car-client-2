@@ -1,9 +1,17 @@
 // Современный хедер модального окна
-.modern-modal-header {
-  position: relative;
-  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
-  border-bottom: 1px solid rgba(46, 125, 50, 0.1);
-  padding: 2rem;
+  .modern-modal-header {
+    position: relative;
+    background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-bottom: 1px solid rgba(46, 125, 50, 0.1);
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 575.98px) {
+      padding: 1.25rem 1rem;
+    }
   border-radius: 16px 16px 0 0;
   overflow: hidden;
 
@@ -57,38 +65,57 @@
     position: relative;
     z-index: 2;
 
-    .header-icon {
-      width: 60px;
-      height: 60px;
-      background: linear-gradient(135deg, var(--green-primary), var(--green-light));
-      border-radius: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
-      animation: modalIconFloat 3s ease-in-out infinite;
+      .header-icon {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
+        animation: modalIconFloat 3s ease-in-out infinite;
+        flex-shrink: 0;
 
-      i {
-        font-size: 1.5rem;
-        color: var(--white);
+        @media (max-width: 575.98px) {
+          width: 50px;
+          height: 50px;
+          border-radius: 12px;
+        }
+
+        i {
+          font-size: 1.5rem;
+          color: var(--white);
+
+          @media (max-width: 575.98px) {
+            font-size: 1.25rem;
+          }
+        }
       }
-    }
 
     .header-text {
-      .modal-title {
-        font-size: 1.75rem;
-        font-weight: 800;
-        color: var(--blue-dark);
-        margin-bottom: 0.5rem;
-        line-height: 1.2;
-      }
+        .modal-title {
+          font-size: 1.75rem;
+          font-weight: 800;
+          color: var(--blue-dark);
+          margin-bottom: 0.5rem;
+          line-height: 1.2;
 
-      .modal-subtitle {
-        font-size: 1rem;
-        color: var(--gray-dark);
-        margin: 0;
-        font-weight: 500;
-      }
+          @media (max-width: 575.98px) {
+            font-size: 1.5rem;
+          }
+        }
+
+        .modal-subtitle {
+          font-size: 1rem;
+          color: var(--gray-dark);
+          margin: 0;
+          font-weight: 500;
+
+          @media (max-width: 575.98px) {
+            font-size: 0.9rem;
+          }
+        }
     }
   }
 
@@ -116,9 +143,17 @@
 }
 
 // Современное тело модального окна
-.modern-modal-body {
-  background: var(--white);
-  padding: 2rem;
+  .modern-modal-body {
+    background: var(--white);
+    padding: 2rem;
+
+    @media (max-width: 768px) {
+      padding: 1.5rem;
+    }
+
+    @media (max-width: 575.98px) {
+      padding: 1rem;
+    }
 
   .modern-contact-form {
     .form-section {
@@ -768,39 +803,71 @@
 }
 
 // Современные стили для нового модального окна
-.modern-messenger-selector {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
+  .modern-messenger-selector {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
 
-  .messenger-card {
-    position: relative;
-    border: 2px solid rgba(46, 125, 50, 0.2);
-    border-radius: 16px;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    background: var(--white);
-    min-width: 200px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    @media (max-width: 768px) {
+      flex-direction: column;
+      gap: 0.875rem;
+    }
 
-    &.active {
-      border-color: var(--green-primary);
-      background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(46, 125, 50, 0.1));
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+    @media (max-width: 575.98px) {
+      gap: 0.75rem;
+    }
 
-      .messenger-check {
-        opacity: 1;
-        transform: scale(1);
+    .messenger-card {
+      position: relative;
+      border: 2px solid rgba(46, 125, 50, 0.2);
+      border-radius: 16px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: var(--white);
+      min-width: 200px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+
+      @media (max-width: 768px) {
+        min-width: 100%;
+        padding: 1.25rem;
       }
-    }
 
-    &:hover {
-      border-color: var(--green-primary);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(46, 125, 50, 0.15);
-    }
+      @media (max-width: 575.98px) {
+        padding: 1rem;
+      }
+
+      &.active {
+        border-color: var(--green-primary);
+        background: linear-gradient(135deg, rgba(46, 125, 50, 0.05), rgba(46, 125, 50, 0.1));
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(46, 125, 50, 0.2);
+
+        @media (max-width: 767.98px) {
+          transform: none;
+        }
+
+        .messenger-check {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      &:hover {
+        border-color: var(--green-primary);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(46, 125, 50, 0.15);
+
+        @media (max-width: 767.98px) {
+          transform: none;
+        }
+      }
+
+      &:active {
+        transform: scale(0.98);
+      }
 
     input[type="radio"] {
       position: absolute;
@@ -883,6 +950,10 @@
     grid-template-columns: 1fr;
     gap: 1rem;
   }
+
+  @media (max-width: 575.98px) {
+    gap: 0.875rem;
+  }
 }
 
 .form-group {
@@ -913,6 +984,14 @@
       font-weight: 500;
       transition: all 0.3s ease;
       outline: none;
+      min-height: 48px;
+      touch-action: manipulation;
+
+      @media (max-width: 575.98px) {
+        padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+        font-size: 16px;
+        min-height: 44px;
+      }
 
       &::placeholder {
         color: var(--gray-medium);
@@ -985,6 +1064,13 @@
     outline: none;
     resize: vertical;
     min-height: 120px;
+    touch-action: manipulation;
+
+    @media (max-width: 575.98px) {
+      padding: 0.875rem 0.875rem 0.875rem 2.5rem;
+      font-size: 16px;
+      min-height: 100px;
+    }
 
     &::placeholder {
       color: var(--gray-medium);
@@ -1034,33 +1120,57 @@
 }
 
 // Современный футер модального окна
-.modern-modal-footer {
-  background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
-  border-top: 1px solid rgba(46, 125, 50, 0.1);
-  padding: 1.5rem 2rem;
-  border-radius: 0 0 16px 16px;
+  .modern-modal-footer {
+    background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.95) 100%);
+    border-top: 1px solid rgba(46, 125, 50, 0.1);
+    padding: 1.5rem 2rem;
+    border-radius: 0 0 16px 16px;
 
-  .footer-info {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    margin-bottom: 1.5rem;
-    padding: 1rem;
-    background: rgba(46, 125, 50, 0.05);
-    border-radius: 12px;
-    border-left: 4px solid var(--green-primary);
-
-    i {
-      color: var(--green-primary);
-      font-size: 1.1rem;
+    @media (max-width: 768px) {
+      padding: 1.25rem 1.5rem;
     }
 
-    span {
-      font-size: 0.9rem;
-      color: var(--gray-dark);
-      font-weight: 500;
+    @media (max-width: 575.98px) {
+      padding: 1rem;
     }
-  }
+
+    .footer-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      background: rgba(46, 125, 50, 0.05);
+      border-radius: 12px;
+      border-left: 4px solid var(--green-primary);
+
+      @media (max-width: 575.98px) {
+        padding: 0.875rem;
+        margin-bottom: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      i {
+        color: var(--green-primary);
+        font-size: 1.1rem;
+        flex-shrink: 0;
+
+        @media (max-width: 575.98px) {
+          font-size: 1rem;
+        }
+      }
+
+      span {
+        font-size: 0.9rem;
+        color: var(--gray-dark);
+        font-weight: 500;
+
+        @media (max-width: 575.98px) {
+          font-size: 0.85rem;
+        }
+      }
+    }
 
   .footer-actions {
     display: flex;
@@ -1069,6 +1179,11 @@
 
     @media (max-width: 768px) {
       flex-direction: column;
+      gap: 0.875rem;
+    }
+
+    @media (max-width: 575.98px) {
+      gap: 0.75rem;
     }
 
     .modern-btn {
@@ -1088,11 +1203,29 @@
       &.secondary {
         background: rgba(46, 125, 50, 0.1);
         color: var(--green-primary);
+        min-height: 52px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (max-width: 575.98px) {
+          min-height: 48px;
+          padding: 0.875rem 1.25rem;
+          font-size: 0.95rem;
+        }
 
         &:hover {
           background: rgba(46, 125, 50, 0.2);
           transform: translateY(-2px);
           box-shadow: 0 4px 12px rgba(46, 125, 50, 0.2);
+
+          @media (max-width: 767.98px) {
+            transform: none;
+            box-shadow: none;
+          }
+        }
+
+        &:active {
+          transform: scale(0.98);
         }
       }
 
@@ -1100,11 +1233,29 @@
         background: linear-gradient(135deg, var(--green-primary), var(--green-light));
         color: var(--white);
         box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+        min-height: 52px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (max-width: 575.98px) {
+          min-height: 48px;
+          padding: 0.875rem 1.25rem;
+          font-size: 0.95rem;
+        }
 
         &:hover:not(:disabled) {
           transform: translateY(-2px);
           box-shadow: 0 8px 20px rgba(46, 125, 50, 0.4);
           background: linear-gradient(135deg, var(--green-light), var(--green-primary));
+
+          @media (max-width: 767.98px) {
+            transform: none;
+            box-shadow: 0 4px 12px rgba(46, 125, 50, 0.3);
+          }
+        }
+
+        &:active:not(:disabled) {
+          transform: scale(0.98);
         }
 
         &:disabled {

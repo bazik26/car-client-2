@@ -819,6 +819,34 @@
   .hero-section {
     min-height: 80vh;
     padding: 1rem;
+
+    .hero-content {
+      gap: 1.5rem;
+    }
+
+    .hero-text {
+      .hero-title {
+        font-size: 2rem;
+      }
+
+      .hero-subtitle {
+        font-size: 1rem;
+      }
+
+      .hero-stats {
+        gap: 1rem;
+
+        .stat-item {
+          .stat-number {
+            font-size: 2rem;
+          }
+
+          .stat-label {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
   }
 
   .team-members-section,
@@ -828,16 +856,445 @@
     padding: 4rem 1rem;
   }
 
-  .team-grid {
-    grid-template-columns: 1fr;
+  .team-members-section {
+    .section-header {
+      margin-bottom: 3rem;
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .team-grid {
+      gap: 1.5rem;
+    }
+
+    .team-member {
+      .member-card {
+        .member-header {
+          padding: 1.5rem;
+
+          .member-icon {
+            width: 60px;
+            height: 60px;
+
+            i {
+              font-size: 1.5rem;
+            }
+          }
+
+          .member-badge {
+            padding: 0.4rem 0.8rem;
+            font-size: 0.75rem;
+          }
+        }
+
+        .member-info {
+          padding: 1.5rem;
+
+          .member-name {
+            font-size: 1.25rem;
+          }
+
+          .member-position {
+            font-size: 0.95rem;
+          }
+
+          .member-bio {
+            font-size: 0.9rem;
+          }
+
+          .member-cta {
+            .btn {
+              padding: 0.75rem 1.25rem;
+              font-size: 0.9rem;
+              min-height: 44px;
+              touch-action: manipulation;
+              -webkit-tap-highlight-color: transparent;
+
+              &:active {
+                transform: scale(0.98);
+              }
+            }
+          }
+        }
+      }
+    }
   }
 
-  .achievements-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .achievements-section {
+    .section-header {
+      margin-bottom: 3rem;
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .achievements-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .achievement-card {
+      padding: 1.5rem;
+
+      .achievement-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1.25rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      .achievement-content {
+        .achievement-number {
+          font-size: 2rem;
+        }
+
+        .achievement-label {
+          font-size: 1rem;
+        }
+
+        .achievement-description {
+          font-size: 0.85rem;
+        }
+      }
+    }
   }
 
-  .values-grid {
-    grid-template-columns: 1fr;
+  .values-section {
+    .section-header {
+      margin-bottom: 3rem;
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      padding: 2rem;
+
+      .value-icon {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 1.25rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+      }
+
+      .value-content {
+        h3 {
+          font-size: 1.25rem;
+        }
+
+        p {
+          font-size: 0.95rem;
+        }
+      }
+    }
+  }
+
+  .cta-section {
+    .cta-content {
+      gap: 2rem;
+
+      .cta-text {
+        .cta-title {
+          font-size: 2rem;
+        }
+
+        .cta-subtitle {
+          font-size: 1rem;
+        }
+      }
+
+      .cta-buttons {
+        gap: 0.875rem;
+
+        .btn {
+          padding: 0.875rem 1.5rem;
+          font-size: 0.95rem;
+          min-height: 48px;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
+
+          &:active {
+            transform: scale(0.98);
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 575.98px) {
+  .hero-section {
+    min-height: 70vh;
+    padding: 0.75rem;
+
+    .hero-content {
+      gap: 1.25rem;
+    }
+
+    .hero-text {
+      .hero-title {
+        font-size: 1.75rem;
+      }
+
+      .hero-subtitle {
+        font-size: 0.95rem;
+      }
+
+      .hero-stats {
+        flex-direction: column;
+        gap: 0.875rem;
+
+        .stat-item {
+          .stat-number {
+            font-size: 1.75rem;
+          }
+
+          .stat-label {
+            font-size: 0.8rem;
+          }
+        }
+      }
+    }
+  }
+
+  .team-members-section,
+  .achievements-section,
+  .values-section,
+  .cta-section {
+    padding: 3rem 0.75rem;
+  }
+
+  .team-members-section {
+    .section-header {
+      margin-bottom: 2rem;
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+    }
+
+    .team-grid {
+      gap: 1.25rem;
+    }
+
+    .team-member {
+      .member-card {
+        .member-header {
+          padding: 1.25rem;
+
+          .member-icon {
+            width: 50px;
+            height: 50px;
+
+            i {
+              font-size: 1.25rem;
+            }
+          }
+
+          .member-badge {
+            padding: 0.35rem 0.75rem;
+            font-size: 0.7rem;
+          }
+        }
+
+        .member-info {
+          padding: 1.25rem;
+
+          .member-name {
+            font-size: 1.1rem;
+          }
+
+          .member-position {
+            font-size: 0.9rem;
+          }
+
+          .member-bio {
+            font-size: 0.85rem;
+          }
+
+          .member-skills {
+            gap: 0.4rem;
+
+            .skill-tag {
+              padding: 0.35rem 0.7rem;
+              font-size: 0.75rem;
+            }
+          }
+
+          .member-cta {
+            .btn {
+              padding: 0.75rem 1rem;
+              font-size: 0.85rem;
+              min-height: 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .achievements-section {
+    .section-header {
+      margin-bottom: 2rem;
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+    }
+
+    .achievements-grid {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .achievement-card {
+      padding: 1.25rem;
+
+      .achievement-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+
+        i {
+          font-size: 1.25rem;
+        }
+      }
+
+      .achievement-content {
+        .achievement-number {
+          font-size: 1.75rem;
+        }
+
+        .achievement-label {
+          font-size: 0.95rem;
+        }
+
+        .achievement-description {
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+
+  .values-section {
+    .section-header {
+      margin-bottom: 2rem;
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .section-subtitle {
+        font-size: 0.95rem;
+      }
+    }
+
+    .values-grid {
+      gap: 1.25rem;
+    }
+
+    .value-card {
+      padding: 1.5rem;
+
+      .value-icon {
+        width: 50px;
+        height: 50px;
+        margin-bottom: 1rem;
+
+        i {
+          font-size: 1.25rem;
+        }
+      }
+
+      .value-content {
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .value-features {
+          .feature-item {
+            font-size: 0.85rem;
+          }
+        }
+      }
+    }
+  }
+
+  .cta-section {
+    padding: 3rem 0.75rem;
+
+    .cta-content {
+      gap: 1.5rem;
+      text-align: center;
+
+      .cta-text {
+        .cta-title {
+          font-size: 1.5rem;
+        }
+
+        .cta-subtitle {
+          font-size: 0.95rem;
+        }
+
+        .cta-features {
+          gap: 0.875rem;
+
+          .cta-feature {
+            font-size: 0.9rem;
+          }
+        }
+      }
+
+      .cta-buttons {
+        gap: 0.75rem;
+
+        .btn {
+          width: 100%;
+          padding: 0.75rem 1.25rem;
+          font-size: 0.9rem;
+          min-height: 44px;
+        }
+      }
+    }
   }
 }
 

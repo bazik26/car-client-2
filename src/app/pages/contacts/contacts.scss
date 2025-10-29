@@ -282,10 +282,25 @@
 
     .contact-cards {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
     }
 
     .contact-card {
       padding: 1.5rem;
+      flex-direction: column;
+      text-align: center;
+      gap: 1rem;
+
+      .contact-icon {
+        width: 50px;
+        height: 50px;
+      }
+
+      .contact-details {
+        .contact-link {
+          font-size: 1rem;
+        }
+      }
     }
 
     .legal-info {
@@ -308,10 +323,149 @@
 
     .contact-form {
       padding: 1.5rem;
+
+      .form-group {
+        input, textarea {
+          padding: 0.875rem;
+          font-size: 16px;
+          min-height: 44px;
+          touch-action: manipulation;
+        }
+
+        textarea {
+          min-height: 120px;
+        }
+      }
+
+      .submit-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 1rem 1.5rem;
+        min-height: 48px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
     }
 
     .info-grid {
       grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .info-item {
+      padding: 1.5rem 1rem;
+
+      .info-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.25rem;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+      }
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    padding: 0.75rem 0;
+
+    h1 {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      font-size: 1.25rem;
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    .contacts-content {
+      gap: 2rem;
+    }
+
+    .contact-cards {
+      gap: 1rem;
+    }
+
+    .contact-card {
+      padding: 1.25rem;
+
+      .contact-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+
+      .contact-details {
+        .contact-link {
+          font-size: 0.95rem;
+        }
+
+        .contact-text, p {
+          font-size: 0.85rem;
+        }
+      }
+    }
+
+    .legal-info {
+      padding: 1.25rem;
+    }
+
+    .contact-form {
+      padding: 1.25rem;
+
+      .form-group {
+        margin-bottom: 1.25rem;
+
+        label {
+          font-size: 0.95rem;
+        }
+
+        input, textarea {
+          padding: 0.75rem;
+          font-size: 16px;
+          min-height: 44px;
+        }
+
+        textarea {
+          min-height: 100px;
+        }
+      }
+
+      .submit-btn {
+        padding: 0.875rem 1.25rem;
+        font-size: 1rem;
+        min-height: 44px;
+      }
+    }
+
+    .info-grid {
+      gap: 1rem;
+    }
+
+    .info-item {
+      padding: 1.25rem 0.875rem;
+
+      .info-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+        margin-bottom: 0.875rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
     }
   }
 }

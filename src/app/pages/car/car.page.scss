@@ -620,21 +620,50 @@
       gap: 2rem;
       padding: 0 1rem;
 
+      @media (max-width: 575.98px) {
+        gap: 1.5rem;
+        padding: 0 0.75rem;
+      }
+
       .car-images-panel .images-card {
         padding: 1.5rem;
+
+        @media (max-width: 575.98px) {
+          padding: 1rem;
+        }
 
         .images-header {
           flex-direction: column;
           gap: 1rem;
           align-items: flex-start;
 
+          @media (max-width: 575.98px) {
+            gap: 0.75rem;
+          }
+
           .images-title {
             font-size: 1.3rem;
+
+            @media (max-width: 575.98px) {
+              font-size: 1.1rem;
+            }
           }
         }
 
         .images-container .car-swiper {
           height: 300px;
+
+          @media (max-width: 575.98px) {
+            height: 250px;
+          }
+
+          swiper-slide {
+            height: 300px !important;
+
+            @media (max-width: 575.98px) {
+              height: 250px !important;
+            }
+          }
         }
       }
 
@@ -671,12 +700,30 @@
 
         .actions-card {
           flex-direction: column;
+          gap: 0.875rem;
+
+          @media (max-width: 575.98px) {
+            gap: 0.75rem;
+          }
 
           .contact-btn,
           .favorite-btn {
             width: 100%;
             padding: 1rem;
             font-size: 1rem;
+            min-height: 52px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+
+            @media (max-width: 575.98px) {
+              padding: 0.875rem;
+              font-size: 0.95rem;
+              min-height: 48px;
+            }
+
+            &:active {
+              transform: scale(0.98);
+            }
           }
         }
       }
@@ -686,8 +733,17 @@
       margin-top: 2rem;
       padding: 0 1rem;
 
+      @media (max-width: 575.98px) {
+        margin-top: 1.5rem;
+        padding: 0 0.75rem;
+      }
+
       .configurations-card {
         padding: 2rem;
+
+        @media (max-width: 575.98px) {
+          padding: 1.5rem;
+        }
 
         .configurations-header {
           flex-direction: column;
@@ -787,25 +843,69 @@
     height: 50px !important;
     border-radius: 50% !important;
     margin-top: -25px !important;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    min-width: 44px;
+    min-height: 44px;
+
+    @media (max-width: 575.98px) {
+      width: 40px !important;
+      height: 40px !important;
+      margin-top: -20px !important;
+      min-width: 40px;
+      min-height: 40px;
+    }
 
     &:after {
       font-size: 18px !important;
       font-weight: 700 !important;
+
+      @media (max-width: 575.98px) {
+        font-size: 14px !important;
+      }
     }
 
     &:hover {
       background: var(--green-primary) !important;
       transform: scale(1.1) !important;
+
+      @media (max-width: 767.98px) {
+        transform: none !important;
+      }
+    }
+
+    &:active {
+      transform: scale(0.95) !important;
     }
   }
 
   .swiper-pagination {
+    @media (max-width: 575.98px) {
+      bottom: 10px !important;
+    }
+
     .swiper-pagination-bullet {
       background: rgba(255, 255, 255, 0.5) !important;
       opacity: 1 !important;
+      width: 8px !important;
+      height: 8px !important;
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
+
+      @media (max-width: 575.98px) {
+        width: 6px !important;
+        height: 6px !important;
+      }
 
       &.swiper-pagination-bullet-active {
         background: var(--green-primary) !important;
+        width: 10px !important;
+        height: 10px !important;
+
+        @media (max-width: 575.98px) {
+          width: 8px !important;
+          height: 8px !important;
+        }
       }
     }
   }
