@@ -1144,72 +1144,72 @@
       top: 0;
       z-index: 10;
 
-    @media (max-width: 575.98px) {
-      padding: 1rem 0.75rem;
-    }
+      @media (max-width: 575.98px) {
+        padding: 1rem 0.75rem;
+      }
 
-    .mobile-logo {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
+      .mobile-logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
 
-      i {
-        width: 40px;
-        height: 40px;
-        background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+        i {
+          width: 40px;
+          height: 40px;
+          background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: var(--white);
+          font-size: 1.25rem;
+        }
+
+        span {
+          font-size: 1.25rem;
+          font-weight: 800;
+          color: var(--blue-dark);
+        }
+      }
+
+      .mobile-close {
+        width: 44px;
+        height: 44px;
+        min-width: 44px;
+        min-height: 44px;
+        background: rgba(46, 125, 50, 0.1);
+        border: none;
         border-radius: 10px;
+        color: var(--green-primary);
+        font-size: 1.25rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
         display: flex;
         align-items: center;
         justify-content: center;
-        color: var(--white);
-        font-size: 1.25rem;
-      }
+        flex-shrink: 0;
 
-      span {
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: var(--blue-dark);
-      }
-    }
+        @media (max-width: 575.98px) {
+          width: 40px;
+          height: 40px;
+          min-width: 40px;
+          min-height: 40px;
+          font-size: 1.1rem;
+        }
 
-    .mobile-close {
-      width: 44px;
-      height: 44px;
-      min-width: 44px;
-      min-height: 44px;
-      background: rgba(46, 125, 50, 0.1);
-      border: none;
-      border-radius: 10px;
-      color: var(--green-primary);
-      font-size: 1.25rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
+        &:hover {
+          background: var(--green-primary);
+          color: var(--white);
+          transform: scale(1.1);
+        }
 
-      @media (max-width: 575.98px) {
-        width: 40px;
-        height: 40px;
-        min-width: 40px;
-        min-height: 40px;
-        font-size: 1.1rem;
-      }
-
-      &:hover {
-        background: var(--green-primary);
-        color: var(--white);
-        transform: scale(1.1);
-      }
-
-      &:active {
-        transform: scale(0.95);
+        &:active {
+          transform: scale(0.95);
+        }
       }
     }
-  }
 
     .mobile-nav {
       flex: 1;
@@ -1234,75 +1234,77 @@
           box-shadow: 0 8px 20px rgba(46, 125, 50, 0.3);
         }
 
-      a {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem 1.25rem;
-        min-height: 48px;
-        color: var(--gray-darker);
-        text-decoration: none;
-        font-weight: 600;
-        border-radius: 12px;
-        transition: all 0.3s ease;
-        position: relative;
-        overflow: hidden;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
+        a {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+          padding: 1rem 1.25rem;
+          min-height: 48px;
+          color: var(--gray-darker);
+          text-decoration: none;
+          font-weight: 600;
+          border-radius: 12px;
+          transition: all 0.3s ease;
+          position: relative;
+          overflow: hidden;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
 
-        @media (max-width: 575.98px) {
-          padding: 0.875rem 1rem;
-          gap: 0.875rem;
-        }
-
-        &::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-          transition: left 0.5s ease;
-        }
-
-        &:hover {
-          background: rgba(46, 125, 50, 0.1);
-          color: var(--green-primary);
-          transform: translateX(4px);
-
-          @media (max-width: 767.98px) {
-            transform: none;
+          @media (max-width: 575.98px) {
+            padding: 0.875rem 1rem;
+            gap: 0.875rem;
           }
 
           &::before {
-            left: 100%;
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s ease;
+          }
+
+          &:hover {
+            background: rgba(46, 125, 50, 0.1);
+            color: var(--green-primary);
+            transform: translateX(4px);
+
+            @media (max-width: 767.98px) {
+              transform: none;
+            }
+
+            &::before {
+              left: 100%;
+            }
+          }
+
+          &:active {
+            transform: translateX(2px) scale(0.98);
+            background: rgba(46, 125, 50, 0.15);
+          }
+
+          i {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+            flex-shrink: 0;
+
+            @media (max-width: 575.98px) {
+              font-size: 1.1rem;
+              width: 22px;
+            }
+          }
+
+          span {
+            font-size: 1rem;
+
+            @media (max-width: 575.98px) {
+              font-size: 0.95rem;
+            }
           }
         }
-
-        &:active {
-          transform: translateX(2px) scale(0.98);
-          background: rgba(46, 125, 50, 0.15);
-        }
-
-        i {
-          font-size: 1.25rem;
-          width: 24px;
-          text-align: center;
-          flex-shrink: 0;
-
-          @media (max-width: 575.98px) {
-            font-size: 1.1rem;
-            width: 22px;
-          }
-        }
-
-        span {
-          font-size: 1rem;
-
-          @media (max-width: 575.98px) {
-            font-size: 0.95rem;
-          }
       }
     }
 
@@ -1323,90 +1325,90 @@
         margin-bottom: 1.5rem;
 
         .contact-item {
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        padding: 1rem;
-        min-height: 64px;
-        background: rgba(46, 125, 50, 0.05);
-        border-radius: 12px;
-        text-decoration: none;
-        transition: all 0.3s ease;
-        touch-action: manipulation;
-        -webkit-tap-highlight-color: transparent;
-
-        @media (max-width: 575.98px) {
-          padding: 0.875rem;
-          gap: 0.875rem;
-        }
-
-        &:hover {
-          background: rgba(46, 125, 50, 0.1);
-          transform: translateY(-2px);
-
-          @media (max-width: 767.98px) {
-            transform: none;
-          }
-        }
-
-        &:active {
-          transform: scale(0.98);
-          background: rgba(46, 125, 50, 0.15);
-        }
-
-        i {
-          width: 40px;
-          height: 40px;
-          min-width: 40px;
-          min-height: 40px;
-          background: linear-gradient(135deg, var(--green-primary), var(--green-light));
-          border-radius: 10px;
           display: flex;
           align-items: center;
-          justify-content: center;
-          color: var(--white);
-          font-size: 1rem;
-          flex-shrink: 0;
+          gap: 1rem;
+          padding: 1rem;
+          min-height: 64px;
+          background: rgba(46, 125, 50, 0.05);
+          border-radius: 12px;
+          text-decoration: none;
+          transition: all 0.3s ease;
+          touch-action: manipulation;
+          -webkit-tap-highlight-color: transparent;
 
           @media (max-width: 575.98px) {
-            width: 36px;
-            height: 36px;
-            min-width: 36px;
-            min-height: 36px;
-            font-size: 0.9rem;
+            padding: 0.875rem;
+            gap: 0.875rem;
           }
-        }
 
-        div {
-          display: flex;
-          flex-direction: column;
-          flex: 1;
-          min-width: 0;
+          &:hover {
+            background: rgba(46, 125, 50, 0.1);
+            transform: translateY(-2px);
 
-          .contact-label {
-            font-size: 0.8rem;
-            color: var(--gray-dark);
-            font-weight: 500;
-            margin-bottom: 0.25rem;
-
-            @media (max-width: 575.98px) {
-              font-size: 0.75rem;
+            @media (max-width: 767.98px) {
+              transform: none;
             }
           }
 
-          .contact-value {
+          &:active {
+            transform: scale(0.98);
+            background: rgba(46, 125, 50, 0.15);
+          }
+
+          i {
+            width: 40px;
+            height: 40px;
+            min-width: 40px;
+            min-height: 40px;
+            background: linear-gradient(135deg, var(--green-primary), var(--green-light));
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
             font-size: 1rem;
-            color: var(--green-primary);
-            font-weight: 700;
-            word-break: break-all;
+            flex-shrink: 0;
 
             @media (max-width: 575.98px) {
+              width: 36px;
+              height: 36px;
+              min-width: 36px;
+              min-height: 36px;
               font-size: 0.9rem;
+            }
+          }
+
+          div {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            min-width: 0;
+
+            .contact-label {
+              font-size: 0.8rem;
+              color: var(--gray-dark);
+              font-weight: 500;
+              margin-bottom: 0.25rem;
+
+              @media (max-width: 575.98px) {
+                font-size: 0.75rem;
+              }
+            }
+
+            .contact-value {
+              font-size: 1rem;
+              color: var(--green-primary);
+              font-weight: 700;
+              word-break: break-all;
+
+              @media (max-width: 575.98px) {
+                font-size: 0.9rem;
+              }
             }
           }
         }
       }
-    }
 
       .mobile-cta {
         width: 100%;
