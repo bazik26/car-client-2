@@ -75,7 +75,7 @@ export class Contacts {
   }
   
   showErrorMessage() {
-    this.showToast('Ошибка отправки', 'Попробуйте еще раз или свяжитесь с нами по телефону.');
+    this.showToast('Ошибка отправки', 'Попробуйте еще раз или свяжитесь с нами по email.');
   }
   
   private showToast(title: string, message?: string) {
