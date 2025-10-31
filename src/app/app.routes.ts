@@ -26,7 +26,7 @@ export const routes: Routes = [
       {
         path: 'home',
         component: HomePage,
-        title: `${BRAND_CONFIG.name} - Продажа автомобилей в Саратове`,
+        title: `${BRAND_CONFIG.name} - Продажа автомобилей в Ярославле`,
       },
 
       {

@@ -1,18 +1,18 @@
 export const BRAND_CONFIG = {
-  name: 'Vam Auto',
-  email: 'info@vamauto.com',
-  shortName: 'Vam Auto',
+  name: 'Auto Broker',
+  email: 'info@autobroker.ru',
+  shortName: 'Auto Broker',
   phone: '+38 (063) 667 0272',
   phoneLink: 'tel:+380636670272',
   currency: 'RUB ',
   currencySymbol: '₽ ',
-  address: 'Саратов, Россия',
-  city: 'Саратов',
-  region: 'Саратовская область',
+  address: 'Ярославль, Россия',
+  city: 'Ярославль',
+  region: 'Ярославская область',
   country: 'Россия',
   coordinates: {
-    latitude: 51.5406,
-    longitude: 46.0086
+    latitude: 57.6299,
+    longitude: 39.8737
   },
   ogImage: '/public/favicon.ico',
   website: 'https://vamauto.com'

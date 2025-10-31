@@ -171,7 +171,7 @@
     flex-shrink: 0;
 
     .mobile-menu-btn {
-      display: flex !important;
+      display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
@@ -191,8 +191,10 @@
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
       flex-shrink: 0 !important;
-      visibility: visible !important;
-      opacity: 1 !important;
+
+      @include media-breakpoint-up(lg) {
+        display: none !important;
+      }
 
       @media (max-width: 575.98px) {
         min-width: 44px !important;

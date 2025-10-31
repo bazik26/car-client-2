@@ -58,7 +58,7 @@ export class SEOService {
       price: car.price ? car.price.toLocaleString() : '',
       mileage: car.mileage ? car.mileage.toLocaleString() : 'не указан',
       color: car.color ? `Цвет: ${car.color}.` : '',
-      brandName: 'Vam Auto',
+      brandName: 'Auto Broker',
       id: car.id || car._id || ''
     };
 

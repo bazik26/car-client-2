@@ -17,7 +17,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   // Главная страница
   home: {
     title: `${BRAND_CONFIG.name} - Пригон автомобилей из Европы в ${BRAND_CONFIG.address}`,
-    description: `${BRAND_CONFIG.name} - компания по пригону авто из Европы в ${BRAND_CONFIG.address}. Подбор, покупка, доставка и растаможка автомобилей под ключ. Гарантия прозрачности сделки и выгодные условия. Звоните: ${BRAND_CONFIG.phone}`,
+    description: `${BRAND_CONFIG.name} - компания по пригону авто из Европы в ${BRAND_CONFIG.address}. Подбор, покупка, доставка и растаможка автомобилей под ключ. Гарантия прозрачности сделки и выгодные условия.`,
     keywords: `пригон авто ${BRAND_CONFIG.address}, авто из Европы, купить авто ${BRAND_CONFIG.address}, растаможка, доставка авто, автомобили под ключ, ${BRAND_CONFIG.name}, ${BRAND_CONFIG.address}`,
     canonical: 'https://vamauto.com/',
     ogTitle: `${BRAND_CONFIG.name} - Авто из Европы в ${BRAND_CONFIG.address}`,
@@ -46,7 +46,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   car: {
     title: `{brand} {model} {year} - {price} ₽ | ${BRAND_CONFIG.name}`,
     description: `{brand} {model} {year} года. Пробег: {mileage} км. Цена: {price} ₽. Автомобиль с Европы. Полное сопровождение: покупка, доставка и растаможка с ${BRAND_CONFIG.name}.`,
-    keywords: '{brand}, {model}, {year}, авто Европа, пригон авто, купить автомобиль, Vam Auto, Саратов',
+    keywords: '{brand}, {model}, {year}, авто Европа, пригон авто, купить автомобиль, Auto Broker, Ярославль',
     canonical: 'https://vamauto.com/cars/{id}',
     ogTitle: `{brand} {model} {year} | ${BRAND_CONFIG.name}`,
     ogDescription: `{brand} {model} {year}. Цена {price} ₽. Пригон авто из Европы с ${BRAND_CONFIG.name}.`,
@@ -60,7 +60,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   about: {
     title: `О компании ${BRAND_CONFIG.name}`,
     description: `${BRAND_CONFIG.name} - эксперт в пригоне автомобилей из Европы. Работаем по всей России. Предлагаем подбор, проверку, доставку и оформление авто под ключ. Надежность и опыт на каждом этапе.`,
-    keywords: 'о компании, пригон авто, авто Европа, доставка автомобилей, Vam Auto, Саратов',
+    keywords: 'о компании, пригон авто, авто Европа, доставка автомобилей, Auto Broker, Ярославль',
     canonical: 'https://vamauto.com/about-us',
     ogTitle: `О компании ${BRAND_CONFIG.name}`,
     ogDescription: `Узнайте больше о ${BRAND_CONFIG.name} - эксперт по пригону авто из Европы в Россию.`,
@@ -74,7 +74,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   team: {
     title: `Наша команда | ${BRAND_CONFIG.name}`,
     description: `Познакомьтесь с командой ${BRAND_CONFIG.name}. Специалисты по подбору и пригону автомобилей из Европы в Россию. Опытные менеджеры, брокеры и логисты помогут вам получить идеальное авто под ключ.`,
-    keywords: 'команда, эксперты, пригон авто, специалисты, Vam Auto, Саратов',
+    keywords: 'команда, эксперты, пригон авто, специалисты, Auto Broker, Ярославль',
     canonical: 'https://vamauto.com/team',
     ogTitle: `Команда ${BRAND_CONFIG.name}`,
     ogDescription: `Специалисты ${BRAND_CONFIG.name} по подбору и пригону авто из Европы. Опыт и надежность.`,
@@ -87,8 +87,8 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   // Контакты
   contacts: {
     title: `Контакты | ${BRAND_CONFIG.name}`,
-    description: `Свяжитесь с ${BRAND_CONFIG.name}. Консультации по пригону авто из Европы, расчет стоимости и ответы на все вопросы. Телефон: ${BRAND_CONFIG.phone}.`,
-    keywords: 'контакты, Vam Auto, телефон, пригон авто, авто Европа, Саратов',
+    description: `Свяжитесь с ${BRAND_CONFIG.name}. Консультации по пригону авто из Европы, расчет стоимости и ответы на все вопросы.`,
+    keywords: 'контакты, Auto Broker, пригон авто, авто Европа, Ярославль',
     canonical: 'https://vamauto.com/contacts',
     ogTitle: `Контакты | ${BRAND_CONFIG.name}`,
     ogDescription: `Контакты ${BRAND_CONFIG.name} - консультации по пригону авто из Европы в Россию.`,
@@ -102,7 +102,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   terms: {
     title: `Пользовательское соглашение | ${BRAND_CONFIG.name}`,
     description: `Пользовательское соглашение ${BRAND_CONFIG.name}. Условия использования сайта и услуг по пригону автомобилей из Европы в Россию.`,
-    keywords: 'пользовательское соглашение, условия использования, Vam Auto, пригон авто, Саратов',
+    keywords: 'пользовательское соглашение, условия использования, Auto Broker, пригон авто, Ярославль',
     canonical: 'https://vamauto.com/terms-of-service',
     ogTitle: `Пользовательское соглашение | ${BRAND_CONFIG.name}`,
     ogDescription: `Условия использования сайта ${BRAND_CONFIG.name} для пригона авто из Европы.`,
@@ -116,7 +116,7 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
   privacy: {
     title: `Политика конфиденциальности | ${BRAND_CONFIG.name}`,
     description: `Политика конфиденциальности ${BRAND_CONFIG.name}. Как мы обрабатываем персональные данные клиентов при пригоне автомобилей из Европы в Россию.`,
-    keywords: 'политика конфиденциальности, персональные данные, Vam Auto, пригон авто, Саратов',
+    keywords: 'политика конфиденциальности, персональные данные, Auto Broker, пригон авто, Ярославль',
     canonical: 'https://vamauto.com/privacy-policy',
     ogTitle: `Политика конфиденциальности | ${BRAND_CONFIG.name}`,
     ogDescription: `Политика обработки персональных данных ${BRAND_CONFIG.name} при пригоне авто из Европы.`,

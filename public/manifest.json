@@ -1,6 +1,6 @@
 {
-  "name": "Vam Auto - Пригон автомобилей",
-  "short_name": "Vam Auto",
+  "name": "Auto Broker - Пригон автомобилей",
+  "short_name": "Auto Broker",
   "description": "Пригон автомобилей из Китая, США и Европы",
   "start_url": "/",
   "display": "standalone",
