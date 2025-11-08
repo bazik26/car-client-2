@@ -1,7 +1,6 @@
-@use 'bootstrap/scss/functions' as *;
-@use 'bootstrap/scss/variables' as *;
-@use 'bootstrap/scss/mixins' as *;
-@use 'sass:color';
+@import 'bootstrap/scss/functions';
+@import 'bootstrap/scss/variables';
+@import 'bootstrap/scss/mixins';
 
 // Современный хедер
 .modern-header {
@@ -1891,12 +1890,12 @@ header {
         
         &:active {
           transform: scale(0.98);
-          background-color: color.adjust(#217e02, $lightness: -10%);
+          background-color: #1a6502;
         }
       }
       
       &:hover {
-        background-color: darken(#217e02, 10%);
+        background-color: #1a6502;
         transform: translateY(-2px);
         
         @media (max-width: 767.98px) {

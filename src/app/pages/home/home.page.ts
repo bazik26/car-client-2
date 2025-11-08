@@ -19,7 +19,7 @@ import { NgOptimizedImage } from '@angular/common';
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [RouterModule, CurrencyPipe, NgOptimizedImage, ContactUsComponent],
+  imports: [RouterModule, CurrencyPipe, NgOptimizedImage],
   templateUrl: './home.page.html',
   styleUrls: ['./home.page.scss'],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

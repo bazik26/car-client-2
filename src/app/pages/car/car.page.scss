@@ -165,6 +165,8 @@
 
           .car-swiper {
             width: 100%;
+            overflow: hidden;
+            position: relative;
 
             @media (min-width: 769px) {
               height: 500px;
@@ -178,9 +180,6 @@
               border-left: none;
               border-right: none;
             }
-
-            overflow: hidden;
-            position: relative;
 
             swiper-slide {
               width: 100% !important;
