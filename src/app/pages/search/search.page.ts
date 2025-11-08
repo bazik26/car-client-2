@@ -36,6 +36,11 @@ export class SearchPage implements OnInit {
 
   ngOnInit() {
     this.seoService.setSEO('search');
+    // Добавляем хлебные крошки для каталога
+    this.seoService.setBreadcrumbsJSONLD([
+      { name: 'Главная', url: `${this.brandConfig.website}/` },
+      { name: 'Каталог автомобилей', url: `${this.brandConfig.website}/cars/search` }
+    ]);
     this.form = this.fb.group({
       brand: [null],
       model: [null],
@@ -87,6 +92,10 @@ export class SearchPage implements OnInit {
         const shuffledCars = this.shuffleArray(availableCars);
         this.cars = shuffledCars;
         this.pagination = response.pagination || null;
+        // Устанавливаем JSON-LD для каталога
+        if (this.pagination && this.cars.length > 0) {
+          this.seoService.setCollectionPageJSONLD(this.cars, this.pagination.total, this.appService);
+        }
       });
   }
 
@@ -402,6 +411,10 @@ export class SearchPage implements OnInit {
         const shuffledCars = this.shuffleArray(availableCars);
         this.cars = shuffledCars;
         this.pagination = response.pagination || null;
+        // Устанавливаем JSON-LD для каталога
+        if (this.pagination && this.cars.length > 0) {
+          this.seoService.setCollectionPageJSONLD(this.cars, this.pagination.total, this.appService);
+        }
       });
   }
 

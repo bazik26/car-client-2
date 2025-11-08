@@ -98,6 +98,23 @@
 
   .hero-container {
     width: 100%;
+    
+    .hero-main-title {
+      font-size: clamp(28px, 5vw, 42px);
+      font-weight: 800;
+      color: var(--green-primary);
+      text-align: center;
+      margin: 0 0 30px;
+      line-height: 1.2;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      animation: fadeInDown 0.8s ease-out;
+      
+      @media (max-width: 768px) {
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+    }
     max-width: 1200px;
     padding: 0 20px;
     position: relative;
@@ -2929,4 +2946,15 @@
       }
     }
   }
+}
+
+}
+}
+}
+}
+}
+}
+}
+}
+}
 }

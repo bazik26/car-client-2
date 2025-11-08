@@ -5,40 +5,45 @@ export interface SEOConfig {
   description: string;
   keywords: string;
   canonical?: string;
+  ogType?: string;
   ogTitle: string;
   ogDescription: string;
   ogImage: string;
+  ogPrice?: string;
   twitterTitle: string;
   twitterDescription: string;
   twitterImage: string;
+  yandexVerification?: string;
 }
 
 export const SEO_CONFIG: Record<string, SEOConfig> = {
   // Главная страница
   home: {
-    title: `${BRAND_CONFIG.name} - Пригон автомобилей из Европы в ${BRAND_CONFIG.address}`,
-    description: `${BRAND_CONFIG.name} - компания по пригону авто из Европы в ${BRAND_CONFIG.address}. Подбор, покупка, доставка и растаможка автомобилей под ключ. Гарантия прозрачности сделки и выгодные условия.`,
-    keywords: `пригон авто ${BRAND_CONFIG.address}, авто из Европы, купить авто ${BRAND_CONFIG.address}, растаможка, доставка авто, автомобили под ключ, ${BRAND_CONFIG.name}, ${BRAND_CONFIG.address}`,
-    canonical: 'https://vamauto.com/',
-    ogTitle: `${BRAND_CONFIG.name} - Авто из Европы в ${BRAND_CONFIG.address}`,
-    ogDescription: `Пригон авто из Европы в ${BRAND_CONFIG.address} с ${BRAND_CONFIG.name}. Подбор, доставка и растаможка. Надежно и выгодно.`,
+    title: `${BRAND_CONFIG.name} - Пригон автомобилей из Европы в ${BRAND_CONFIG.address} и по всей России`,
+    description: `${BRAND_CONFIG.name} - компания по пригону авто из Европы в ${BRAND_CONFIG.address} и по всей России. Подбор, покупка, доставка и растаможка автомобилей под ключ. Гарантия прозрачности сделки и выгодные условия.`,
+    keywords: `пригон авто ${BRAND_CONFIG.address}, авто из Европы по всей России, купить авто ${BRAND_CONFIG.address}, растаможка, доставка авто, автомобили под ключ, ${BRAND_CONFIG.name}, пригон авто Россия`,
+    canonical: `${BRAND_CONFIG.website}/`,
+    ogType: 'website',
+    ogTitle: `${BRAND_CONFIG.name} - Авто из Европы в ${BRAND_CONFIG.address} и по всей России`,
+    ogDescription: `Пригон авто из Европы в ${BRAND_CONFIG.address} и по всей России с ${BRAND_CONFIG.name}. Подбор, доставка и растаможка. Надежно и выгодно.`,
     ogImage: `${BRAND_CONFIG.ogImage}`,
-    twitterTitle: `${BRAND_CONFIG.name} - Пригон авто в ${BRAND_CONFIG.address}`,
-    twitterDescription: `Купи автомобиль из Европы в ${BRAND_CONFIG.address} с ${BRAND_CONFIG.name}. Подбор, доставка, растаможка и оформление под ключ.`,
+    twitterTitle: `${BRAND_CONFIG.name} - Пригон авто в ${BRAND_CONFIG.address} и по России`,
+    twitterDescription: `Купи автомобиль из Европы в ${BRAND_CONFIG.address} и по всей России с ${BRAND_CONFIG.name}. Подбор, доставка, растаможка и оформление под ключ.`,
     twitterImage: `${BRAND_CONFIG.ogImage}`
   },
 
   // Страница поиска
   search: {
-    title: `Поиск автомобилей из Европы в ${BRAND_CONFIG.address} | ${BRAND_CONFIG.name}`,
-    description: `Поиск автомобилей для пригона из Европы в ${BRAND_CONFIG.address}. Удобные фильтры по марке, модели, году, цене и характеристикам. ${BRAND_CONFIG.name} - пригон под ключ в ${BRAND_CONFIG.address}.`,
-    keywords: `поиск авто Европа ${BRAND_CONFIG.address}, каталог автомобилей, пригон машин ${BRAND_CONFIG.address}, купить авто из Европы ${BRAND_CONFIG.address}, ${BRAND_CONFIG.name}, ${BRAND_CONFIG.address}`,
-    canonical: 'https://vamauto.com/search',
-    ogTitle: `Поиск авто из Европы в ${BRAND_CONFIG.address} | ${BRAND_CONFIG.name}`,
-    ogDescription: `Найдите авто из Европы для пригона в ${BRAND_CONFIG.address}. ${BRAND_CONFIG.name} - удобный поиск и полное сопровождение сделки.`,
+    title: `Поиск автомобилей из Европы в ${BRAND_CONFIG.address} и по всей России | ${BRAND_CONFIG.name}`,
+    description: `Поиск автомобилей для пригона из Европы в ${BRAND_CONFIG.address} и по всей России. Удобные фильтры по марке, модели, году, цене и характеристикам. ${BRAND_CONFIG.name} - пригон под ключ по России.`,
+    keywords: `поиск авто Европа ${BRAND_CONFIG.address}, каталог автомобилей по России, пригон машин, купить авто из Европы ${BRAND_CONFIG.address}, ${BRAND_CONFIG.name}, доставка по России`,
+    canonical: `${BRAND_CONFIG.website}/cars/search`,
+    ogType: 'website',
+    ogTitle: `Поиск авто из Европы в ${BRAND_CONFIG.address} и по России | ${BRAND_CONFIG.name}`,
+    ogDescription: `Найдите авто из Европы для пригона в ${BRAND_CONFIG.address} и по всей России. ${BRAND_CONFIG.name} - удобный поиск и полное сопровождение сделки.`,
     ogImage: `${BRAND_CONFIG.ogImage}`,
-    twitterTitle: `Поиск авто в ${BRAND_CONFIG.address} | ${BRAND_CONFIG.name}`,
-    twitterDescription: `Подбор и пригон авто из Европы в ${BRAND_CONFIG.address} с ${BRAND_CONFIG.name}. Полный каталог и фильтры.`,
+    twitterTitle: `Поиск авто в ${BRAND_CONFIG.address} и по России | ${BRAND_CONFIG.name}`,
+    twitterDescription: `Подбор и пригон авто из Европы в ${BRAND_CONFIG.address} и по всей России с ${BRAND_CONFIG.name}. Полный каталог и фильтры.`,
     twitterImage: `${BRAND_CONFIG.ogImage}`
   },
 
@@ -47,13 +52,15 @@ export const SEO_CONFIG: Record<string, SEOConfig> = {
     title: `{brand} {model} {year} - {price} ₽ | ${BRAND_CONFIG.name}`,
     description: `{brand} {model} {year} года. Пробег: {mileage} км. Цена: {price} ₽. Автомобиль с Европы. Полное сопровождение: покупка, доставка и растаможка с ${BRAND_CONFIG.name}.`,
     keywords: '{brand}, {model}, {year}, авто Европа, пригон авто, купить автомобиль, Auto Broker, Ярославль',
-    canonical: 'https://vamauto.com/cars/{id}',
+    canonical: `${BRAND_CONFIG.website}/cars/{id}`,
+    ogType: 'product',
     ogTitle: `{brand} {model} {year} | ${BRAND_CONFIG.name}`,
     ogDescription: `{brand} {model} {year}. Цена {price} ₽. Пригон авто из Европы с ${BRAND_CONFIG.name}.`,
-    ogImage: `${BRAND_CONFIG.ogImage}`,
+    ogImage: '{ogImage}',
+    ogPrice: '{ogPrice}',
     twitterTitle: `{brand} {model} {year} | ${BRAND_CONFIG.name}`,
     twitterDescription: `{brand} {model} {year}. Доставка и растаможка авто из Европы с ${BRAND_CONFIG.name}.`,
-    twitterImage: `${BRAND_CONFIG.ogImage}`
+    twitterImage: '{ogImage}'
   },
 
   // О компании
@@ -150,11 +157,14 @@ export function getSEOConfig(page: string, data?: Record<string, any>): SEOConfi
     description: replaceSEOTemplate(config.description, data),
     keywords: replaceSEOTemplate(config.keywords, data),
     canonical: config.canonical ? replaceSEOTemplate(config.canonical, data) : undefined,
+    ogType: config.ogType,
     ogTitle: replaceSEOTemplate(config.ogTitle, data),
     ogDescription: replaceSEOTemplate(config.ogDescription, data),
     ogImage: replaceSEOTemplate(config.ogImage, data),
+    ogPrice: config.ogPrice ? replaceSEOTemplate(config.ogPrice, data) : undefined,
     twitterTitle: replaceSEOTemplate(config.twitterTitle, data),
     twitterDescription: replaceSEOTemplate(config.twitterDescription, data),
-    twitterImage: replaceSEOTemplate(config.twitterImage, data)
+    twitterImage: replaceSEOTemplate(config.twitterImage, data),
+    yandexVerification: config.yandexVerification
   };
 }

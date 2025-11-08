@@ -1,0 +1,34 @@
+# Robots.txt для Auto Broker - Пригон автомобилей из Европы
+
+User-agent: Yandex
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: YandexImages
+Allow: /
+
+User-agent: YandexMobileBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: *
+Allow: /
+
+# Блокируем служебные директории
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+
+# Sitemap
+Sitemap: https://vamauto.com/sitemap.xml
+

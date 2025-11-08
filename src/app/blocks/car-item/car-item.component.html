@@ -15,15 +15,19 @@
         class="car-swiper">
         @for (file of car.files; track file; let index = $index) {
           <swiper-slide>
-            <img
-              height="280"
-              width="400"
-              [ngSrc]="appService.getFileUrl(file)"
-              [priority]="index === 0 && lazyPriority"
-              [alt]="car.brand + ' ' + car.model"
-              (load)="onImageLoad($event)"
-              (error)="onImageError($event)"
-            />
+            <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+              <img
+                height="280"
+                width="400"
+                [ngSrc]="appService.getFileUrl(file)"
+                [priority]="index === 0 && lazyPriority"
+                [alt]="car.brand + ' ' + car.model + ' ' + car.year + ' - купить в Ярославле и по всей России - пригон из Европы'"
+                [title]="'Пригон ' + car.brand + ' ' + car.model + ' из Европы под ключ'"
+                (load)="onImageLoad($event)"
+                (error)="onImageError($event)"
+              />
+              <meta itemprop="url" [content]="appService.getFileUrl(file)">
+            </div>
           </swiper-slide>
         }
       </swiper-container>
@@ -42,9 +46,12 @@
   <div class="car-info-section">
     <!-- Заголовок -->
     <div class="car-header">
-      <a class="car-title-link" [routerLink]="['/cars', car.id]">
-        <h3 class="car-brand">{{ car.brand }}</h3>
-        <h4 class="car-model">{{ car.model }} {{ car.year }}</h4>
+      <a class="car-title-link" [routerLink]="['/cars', car.id]" itemprop="url">
+        <h3 class="car-brand" itemprop="brand" itemscope itemtype="https://schema.org/Brand">
+          <meta itemprop="name" [content]="car.brand">
+          {{ car.brand }}
+        </h3>
+        <h4 class="car-model" itemprop="name">{{ car.model }} {{ car.year }}</h4>
       </a>
     </div>
 
@@ -93,9 +100,12 @@
 
     <!-- Цена и кнопка -->
     <div class="car-footer">
-      <div class="price-section">
+      <div class="price-section" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
         <span class="price-label">Цена</span>
-        <span class="price-value">{{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}</span>
+        <span class="price-value" itemprop="price" [attr.content]="car.price">{{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}</span>
+        <meta itemprop="priceCurrency" content="RUB">
+        <meta itemprop="availability" content="https://schema.org/InStock">
+        <meta itemprop="itemCondition" content="https://schema.org/UsedCondition">
       </div>
       
       <a class="view-details-btn" [routerLink]="['/cars', car.id]">

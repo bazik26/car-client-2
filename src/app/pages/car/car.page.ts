@@ -141,8 +141,14 @@ export class CarPage implements OnInit {
         console.log('Car loaded:', car);
         console.log('Car files:', car.files);
         console.log('Files length:', car.files?.length);
-        // Устанавливаем SEO для страницы автомобиля
-        this.seoService.setCarSEO(car);
+        // Устанавливаем SEO для страницы автомобиля с передачей appService для получения изображений
+        this.seoService.setCarSEO(car, this.appService);
+        // Добавляем хлебные крошки для страницы машины
+        this.seoService.setBreadcrumbsJSONLD([
+          { name: 'Главная', url: `${BRAND_CONFIG.website}/` },
+          { name: 'Каталог автомобилей', url: `${BRAND_CONFIG.website}/cars/search` },
+          { name: `${car.brand} ${car.model} ${car.year}`, url: `${BRAND_CONFIG.website}/cars/${car.id || car._id}` }
+        ]);
       });
   }
 
