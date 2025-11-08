@@ -128,7 +128,7 @@
       <i class="fas fa-times"></i>
       <span>Отменить</span>
     </button>
-    <button type="submit" class="modern-btn primary" (click)="submitContactForm()" 
+    <button id="form-submit-btn" type="submit" class="modern-btn primary" (click)="submitContactForm()" 
             [disabled]="!selectedMessenger || !contactData.firstName || !contactData.phone">
       <i class="fas fa-paper-plane"></i>
       <span>Отправить заявку</span>
