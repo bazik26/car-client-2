@@ -6,6 +6,8 @@ import { debounceTime, distinctUntilChanged, startWith } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { AppService } from '../../app.service';
+import { BRAND_CONFIG } from '../../constants';
+import { SEOService } from '../../services/seo.service';
 import { CarItemComponent } from '../../blocks/car-item/car-item.component';
 
 @Component({
@@ -19,6 +21,8 @@ export class SearchPage implements OnInit {
   public readonly fb = inject(FormBuilder);
 
   public readonly appService = inject(AppService);
+  private readonly seoService = inject(SEOService);
+  public readonly brandConfig = BRAND_CONFIG;
 
   public form!: FormGroup;
 
@@ -31,6 +35,12 @@ export class SearchPage implements OnInit {
   public BRANDS_AND_MODELS!: any[];
 
   ngOnInit() {
+    this.seoService.setSEO('search');
+    // Добавляем хлебные крошки для каталога
+    this.seoService.setBreadcrumbsJSONLD([
+      { name: 'Главная', url: `${this.brandConfig.website}/` },
+      { name: 'Каталог автомобилей', url: `${this.brandConfig.website}/cars/search` }
+    ]);
     this.form = this.fb.group({
       brand: [null],
       model: [null],
@@ -76,8 +86,16 @@ export class SearchPage implements OnInit {
         switchMap((dto) => this.appService.searchCars({ ...dto, page: this.currentPage, limit: this.pageSize })),
       )
       .subscribe((response) => {
-        this.cars = response.cars || [];
+        // Дополнительная фильтрация на фронтенде (на всякий случай)
+        const availableCars = (response.cars || []).filter((car: any) => !car.isSold && !car.sale && !car.deletedAt);
+        // Случайно перемешиваем автомобили для разнообразия
+        const shuffledCars = this.shuffleArray(availableCars);
+        this.cars = shuffledCars;
         this.pagination = response.pagination || null;
+        // Устанавливаем JSON-LD для каталога
+        if (this.pagination && this.cars.length > 0) {
+          this.seoService.setCollectionPageJSONLD(this.cars, this.pagination.total, this.appService);
+        }
       });
   }
 
@@ -387,8 +405,16 @@ export class SearchPage implements OnInit {
     const dto = this.cleanup(this.form.value);
     this.appService.searchCars({ ...dto, page: this.currentPage, limit: this.pageSize })
       .subscribe((response) => {
-        this.cars = response.cars || [];
+        // Дополнительная фильтрация на фронтенде (на всякий случай)
+        const availableCars = (response.cars || []).filter((car: any) => !car.isSold && !car.sale && !car.deletedAt);
+        // Случайно перемешиваем автомобили для разнообразия
+        const shuffledCars = this.shuffleArray(availableCars);
+        this.cars = shuffledCars;
         this.pagination = response.pagination || null;
+        // Устанавливаем JSON-LD для каталога
+        if (this.pagination && this.cars.length > 0) {
+          this.seoService.setCollectionPageJSONLD(this.cars, this.pagination.total, this.appService);
+        }
       });
   }
 
@@ -426,5 +452,19 @@ export class SearchPage implements OnInit {
     this.form.reset();
     this.currentPage = 1;
     this.searchCars();
+  }
+
+  /**
+   * Случайно перемешивает массив автомобилей
+   * @param array - массив автомобилей для перемешивания
+   * @returns перемешанный массив
+   */
+  private shuffleArray(array: any[]): any[] {
+    const shuffled = [...array];
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+    }
+    return shuffled;
   }
 }

@@ -1,17 +1,17 @@
 <!-- Современная страница поиска -->
 <div class="modern-search-page">
   <!-- Заголовок страницы -->
-  <div class="search-header">
+  <section class="search-header" aria-labelledby="search-heading">
     <div class="container">
       <div class="header-content">
-        <h1 class="page-title">
+        <h1 id="search-heading" class="page-title">
           <i class="fas fa-search"></i>
           Поиск автомобилей
         </h1>
         <p class="page-subtitle">Найдите идеальный автомобиль по вашим критериям</p>
       </div>
     </div>
-  </div>
+  </section>
 
   <div class="container">
     <div class="search-layout">
@@ -230,13 +230,14 @@
         }
 
         <!-- Сетка автомобилей -->
-        <div class="cars-grid">
+        <section class="cars-grid" aria-labelledby="catalog-heading" itemscope itemtype="https://schema.org/CollectionPage">
+          <h2 id="catalog-heading" class="sr-only">Каталог автомобилей из Европы</h2>
           @for (car of cars; track car?.id ?? $index) {
-            <div class="car-card">
+            <article class="car-card" itemscope itemtype="https://schema.org/Product">
               <app-car-item [car]="car"></app-car-item>
-            </div>
+            </article>
           }
-        </div>
+        </section>
 
         <!-- Пагинация -->
         @if (pagination && pagination.totalPages > 1) {

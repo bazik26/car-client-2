@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { BRAND_CONFIG } from '../../constants';
 
 @Component({
   selector: 'app-terms-of-service',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './terms-of-service.scss'
 })
 export class TermsOfService {
+  brandConfig = BRAND_CONFIG;
   currentDate = new Date().toLocaleDateString('ru-RU');
 }

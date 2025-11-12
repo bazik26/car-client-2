@@ -1,16 +1,19 @@
 <!-- Современная страница автомобиля -->
 @if (car) {
-  <div class="modern-car-page">
+  <article class="modern-car-page" itemscope itemtype="https://schema.org/Product">
     <!-- Заголовок страницы -->
     <div class="car-header">
       <div class="container">
         <div class="header-content">
-          <h1 class="car-title">
+          <h1 class="car-title" itemprop="name">
             <i class="fas fa-car"></i>
             {{ car.brand }} {{ car.model }} {{ car.year }}
           </h1>
-          <div class="car-price">
-            {{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}
+          <div class="car-price" itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+            <span itemprop="price" [attr.content]="car.price">{{ car.price | currency: brandConfig.currency : "symbol" : "1.0-0" }}</span>
+            <meta itemprop="priceCurrency" content="RUB">
+            <meta itemprop="availability" content="https://schema.org/InStock">
+            <meta itemprop="itemCondition" content="https://schema.org/UsedCondition">
           </div>
         </div>
       </div>
@@ -33,28 +36,39 @@
             
             <div class="images-container">
               @if (car.files && car.files.length > 0) {
-                <swiper-container
-                  slides-per-view="1"
-                  navigation="true"
-                  pagination="true"
-                  loop="false"
-                  autoplay="false"
-                  autoplay-delay="0"
-                  autoplay-disable-on-interaction="true"
-                  speed="500"
-                  class="car-swiper"
-                >
-                  @for (file of car.files; track file; let index = $index) {
-                    <swiper-slide>
-                      <img 
-                        [src]="appService.getFileUrl(file)" 
-                        [alt]="car.brand + ' ' + car.model + ' - фото ' + (index + 1)"
-                        (load)="onImageLoad($event)"
-                        (error)="onImageError($event)"
-                      />
-                    </swiper-slide>
-                  }
-                </swiper-container>
+                <div class="swiper-wrapper-with-counter">
+                  <swiper-container
+                    slides-per-view="1"
+                    navigation="true"
+                    pagination="true"
+                    loop="false"
+                    autoplay="false"
+                    autoplay-delay="0"
+                    autoplay-disable-on-interaction="true"
+                    speed="500"
+                    class="car-swiper"
+                  >
+                    @for (file of car.files; track file; let index = $index) {
+                      <swiper-slide>
+                        <div itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+                          <img
+                            [src]="appService.getFileUrl(file)"
+                            [alt]="car.brand + ' ' + car.model + ' ' + car.year + ' года - купить в Ярославле и по всей России - пригон из Европы - фото ' + (index + 1)"
+                            [title]="car.brand + ' ' + car.model + ' ' + car.year + ' - пригон автомобилей из Европы'"
+                            (load)="onImageLoad($event)"
+                            (error)="onImageError($event)"
+                            loading="lazy"
+                          />
+                          <meta itemprop="url" [content]="appService.getFileUrl(file)">
+                        </div>
+                      </swiper-slide>
+                    }
+                  </swiper-container>
+                  <div class="photo-counter">
+                    <i class="fas fa-images"></i>
+                    {{ car.files?.length || 0 }} фото
+                  </div>
+                </div>
               } @else {
                 <div class="no-images-placeholder">
                   <div class="placeholder-icon">
@@ -153,15 +167,20 @@
               </h3>
             </div>
             
-            <div class="description-content" [innerHTML]="car.description"></div>
+            <div class="description-content" itemprop="description" [innerHTML]="car.description"></div>
+          </div>
+          
+          <!-- Schema.org Brand -->
+          <div itemprop="brand" itemscope itemtype="https://schema.org/Brand" style="display: none;">
+            <meta itemprop="name" [content]="car.brand">
           </div>
 
           <!-- Кнопки действий -->
           <div class="actions-card">
-            <button class="contact-btn" (click)="openContactUsModal()">
-              <i class="fas fa-phone"></i>
-              Связаться с нами
-            </button>
+            <a class="contact-btn" href="https://t.me/autobroker_yar" target="_blank">
+              <i class="fab fa-telegram-plane"></i>
+              Наш Telegram канал
+            </a>
             <button class="favorite-btn">
               <i class="fas fa-heart"></i>
               В избранное
@@ -217,5 +236,5 @@
         </div>
       </div>
     </div>
-  </div>
+  </article>
 }

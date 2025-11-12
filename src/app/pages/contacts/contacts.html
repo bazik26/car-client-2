@@ -10,27 +10,27 @@
         <div class="contact-cards">
           <div class="contact-card">
             <div class="contact-icon">
-              <i class="fas fa-phone"></i>
+              <i class="fas fa-envelope"></i>
             </div>
             <div class="contact-details">
-              <h3>Телефон</h3>
-              <a href="{{ brandConfig.phoneLink }}" class="contact-link">
-                {{ brandConfig.phone }}
-              </a>
-              <p>Звоните нам в рабочее время с 9:00 до 18:00</p>
+              <h3>Email</h3>
+              <span class="contact-link">
+                {{ brandConfig.email }}
+              </span>
+              <p>Напишите нам, и мы ответим в течение 24 часов</p>
             </div>
           </div>
 
           <div class="contact-card">
             <div class="contact-icon">
-              <i class="fas fa-envelope"></i>
+              <i class="fab fa-telegram-plane"></i>
             </div>
             <div class="contact-details">
-              <h3>Email</h3>
-              <a href="mailto:{{ brandConfig.email }}" class="contact-link">
-                {{ brandConfig.email }}
+              <h3>Telegram</h3>
+              <a href="https://t.me/autobroker_yar" class="contact-link" target="_blank">
+                Наш канал
               </a>
-              <p>Напишите нам, и мы ответим в течение 24 часов</p>
+              <p>Следите за акциями и новинками</p>
             </div>
           </div>
 
@@ -55,37 +55,32 @@
         <div class="legal-info">
           <div class="legal-item">
             <strong>Полное наименование:</strong>
-            <span>Общество с ограниченной ответственностью "ВАМ"</span>
+            <span>Общество с ограниченной ответственностью "Автоброкер"</span>
           </div>
           
           <div class="legal-item">
             <strong>Сокращенное наименование:</strong>
-            <span>ООО "ВАМ"</span>
+            <span>ООО "Автоброкер"</span>
           </div>
           
           <div class="legal-item">
             <strong>ОГРН:</strong>
-            <span>1046405511921</span>
+            <span>1127604007410 от 11 мая 2012 г.</span>
           </div>
           
           <div class="legal-item">
-            <strong>ИНН:</strong>
-            <span>6455038584</span>
-          </div>
-          
-          <div class="legal-item">
-            <strong>КПП:</strong>
-            <span>645301001</span>
+            <strong>ИНН/КПП:</strong>
+            <span>7604225320 / 760401001</span>
           </div>
           
           <div class="legal-item">
             <strong>Дата регистрации:</strong>
-            <span>19.11.2004</span>
+            <span>11.05.2012</span>
           </div>
           
           <div class="legal-item">
             <strong>Юридический адрес:</strong>
-            <span>410033, Саратовская область, город Саратов, пр-кт им 50 лет Октября, д.101</span>
+            <span>150000, Ярославская область, город Ярославль, Которосльная наб, д. 22/10, офис 201</span>
           </div>
         </div>
       </div>
@@ -93,7 +88,7 @@
       <!-- Карта -->
       <div class="map-section">
         <h2>Наше местоположение</h2>
-        <p>Мы находимся в Саратове. Посетите нас или свяжитесь для получения дополнительной информации.</p>
+        <p>Мы находимся в Ярославле. Посетите нас или свяжитесь для получения дополнительной информации.</p>
         
         <div class="map-container">
           <iframe 
@@ -155,6 +150,7 @@
           </div>
           
           <button 
+            id="form-submit-btn"
             type="submit" 
             class="submit-btn"
             [disabled]="isSubmitting || !contactFormRef.form.valid">

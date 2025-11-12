@@ -13,6 +13,7 @@ import { switchMap } from 'rxjs';
 
 import { AppService } from '../../app.service';
 import { BRAND_CONFIG } from '../../constants';
+import { SEOService } from '../../services/seo.service';
 
 import { ContactUsComponent } from '../../blocks/contact-us/contact-us.component';
 
@@ -30,6 +31,7 @@ export class CarPage implements OnInit {
   public readonly modal = inject(BsModalService);
 
   public readonly appService = inject(AppService);
+  private readonly seoService = inject(SEOService);
   
   brandConfig = BRAND_CONFIG;
 
@@ -139,6 +141,14 @@ export class CarPage implements OnInit {
         console.log('Car loaded:', car);
         console.log('Car files:', car.files);
         console.log('Files length:', car.files?.length);
+        // Устанавливаем SEO для страницы автомобиля с передачей appService для получения изображений
+        this.seoService.setCarSEO(car, this.appService);
+        // Добавляем хлебные крошки для страницы машины
+        this.seoService.setBreadcrumbsJSONLD([
+          { name: 'Главная', url: `${BRAND_CONFIG.website}/` },
+          { name: 'Каталог автомобилей', url: `${BRAND_CONFIG.website}/cars/search` },
+          { name: `${car.brand} ${car.model} ${car.year}`, url: `${BRAND_CONFIG.website}/cars/${car.id || car._id}` }
+        ]);
       });
   }
 

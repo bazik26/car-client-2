@@ -2,6 +2,7 @@ import { Component, inject, OnInit, AfterViewInit } from '@angular/core';
 import { BRAND_CONFIG } from '../../constants';
 import { BsModalService } from 'ngx-bootstrap/modal';
 import { ContactUsComponent } from '../../blocks/contact-us/contact-us.component';
+import { SEOService } from '../../services/seo.service';
 
 @Component({
   selector: 'app-about-us',
@@ -12,9 +13,10 @@ import { ContactUsComponent } from '../../blocks/contact-us/contact-us.component
 export class AboutUs implements OnInit, AfterViewInit {
   brandConfig = BRAND_CONFIG;
   private readonly modal = inject(BsModalService);
+  private readonly seoService = inject(SEOService);
 
   ngOnInit() {
-    // Инициализация компонента
+    this.seoService.setSEO('about');
   }
 
   ngAfterViewInit() {

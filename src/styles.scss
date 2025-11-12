@@ -68,13 +68,67 @@ body.client {
   overflow-x: hidden;
   width: 100%;
   line-height: 1.6;
-  
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
   // Мобильная оптимизация
   @media (max-width: 767.98px) {
     font-size: 16px;
-    line-height: 1.6;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 575.98px) {
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  // Улучшаем заголовки для мобильных
+  @media (max-width: 767.98px) {
+    h1 {
+      font-size: 1.75rem;
+      line-height: 1.3;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      line-height: 1.3;
+      margin-bottom: 0.875rem;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      line-height: 1.4;
+      margin-bottom: 0.75rem;
+    }
+
+    h4 {
+      font-size: 1.1rem;
+      line-height: 1.4;
+      margin-bottom: 0.625rem;
+    }
+
+    p {
+      margin-bottom: 0.875rem;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    h1 {
+      font-size: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+    }
+
+    h3 {
+      font-size: 1.15rem;
+    }
+
+    h4 {
+      font-size: 1rem;
+    }
   }
 
   swiper-container {
@@ -155,48 +209,68 @@ body.client {
   // Улучшаем touch-события
   * {
     -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
   }
-  
+
   // Улучшаем скролл
   body {
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;
+    overscroll-behavior-y: contain;
   }
-  
+
   // Убираем горизонтальный скролл
   html, body {
     overflow-x: hidden;
     width: 100%;
+    max-width: 100vw;
   }
-  
+
   // Улучшаем читаемость текста
   p, h1, h2, h3, h4, h5, h6 {
     word-wrap: break-word;
+    overflow-wrap: break-word;
     hyphens: auto;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
   }
-  
+
   // Улучшаем формы
   input, textarea, select {
     font-size: 16px !important; // Предотвращает зум на iOS
     border-radius: 8px;
     padding: 12px 16px;
     min-height: 48px;
+    -webkit-appearance: none;
+    appearance: none;
   }
-  
+
   // Улучшаем ссылки
   a {
     text-decoration: none;
-    
+    -webkit-user-drag: none;
+
     &:active {
       opacity: 0.7;
     }
   }
-  
+
   // Улучшаем изображения
   img {
     max-width: 100%;
     height: auto;
     display: block;
+    -webkit-user-drag: none;
+    user-select: none;
+  }
+
+  // Отключаем анимации при необходимости
+  @media (prefers-reduced-motion: reduce) {
+    * {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
@@ -219,10 +293,52 @@ body.client {
 }
 
 // Touch-friendly элементы
-button, a, input, select, textarea {
+button, a, input, select, textarea, .clickable {
   @media (max-width: 767.98px) {
     min-height: 44px;
     min-width: 44px;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+
+    &:active {
+      transform: scale(0.98);
+      transition: transform 0.1s ease;
+    }
+  }
+
+  @media (max-width: 575.98px) {
+    min-height: 48px; // Увеличиваем для маленьких экранов
+  }
+}
+
+// Улучшения для интерактивных элементов
+@media (max-width: 767.98px) {
+  .button, button, .btn {
+    padding: 14px 24px;
+    font-size: 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  // Улучшаем карточки
+  .card, .modern-car-card {
+    &:active {
+      transform: scale(0.99);
+    }
+  }
+
+  // Улучшаем навигацию
+  nav a, .nav-link {
+    padding: 12px 16px;
+
+    &:active {
+      background: rgba(46, 125, 50, 0.1);
+    }
   }
 }
 
@@ -902,16 +1018,30 @@ about-us {
 /* Адаптация для мобильных */
 @media (max-width: 768px) {
   .footer {
+    padding: 60px 0 30px;
+
+    @media (max-width: 575.98px) {
+      padding: 40px 0 20px;
+    }
+
     .footer-grid {
       grid-template-columns: 1fr;
       gap: 30px;
       text-align: center;
+
+      @media (max-width: 575.98px) {
+        gap: 24px;
+      }
     }
 
     .footer-bottom {
-    flex-direction: column;
+      flex-direction: column;
       text-align: center;
       gap: 15px;
+
+      @media (max-width: 575.98px) {
+        gap: 12px;
+      }
     }
   }
 }
@@ -1020,6 +1150,10 @@ about-us {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
+
+    @media (max-width: 575.98px) {
+      gap: 1.5rem;
+    }
   }
 
   .footer-brand {
@@ -1069,6 +1203,10 @@ about-us {
       flex-direction: column;
       gap: 1rem;
 
+      @media (max-width: 575.98px) {
+        gap: 0.75rem;
+      }
+
       .contact-card {
         display: flex;
         align-items: center;
@@ -1078,10 +1216,26 @@ about-us {
         border-radius: 12px;
         border-left: 4px solid var(--green-primary);
         transition: all 0.3s ease;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+
+        @media (max-width: 575.98px) {
+          padding: 0.875rem;
+          gap: 0.875rem;
+        }
 
         &:hover {
           background: rgba(46, 125, 50, 0.1);
           transform: translateX(5px);
+
+          @media (max-width: 767.98px) {
+            transform: none;
+          }
+        }
+
+        &:active {
+          transform: scale(0.98);
+          background: rgba(46, 125, 50, 0.15);
         }
 
         .contact-icon {
@@ -1436,4 +1590,17 @@ about-us {
   50% {
     transform: translateY(-5px) rotate(5deg);
   }
+}
+
+// Screen reader only - для скрытых заголовков доступных для поисковых систем
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }

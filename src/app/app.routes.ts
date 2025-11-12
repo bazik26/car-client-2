@@ -12,13 +12,6 @@ import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy';
 import { TermsOfService } from './pages/terms-of-service/terms-of-service';
 import { Contacts } from './pages/contacts/contacts';
 
-import { AdminLayoutComponent } from './pages/admin/pages/layout/layout.component';
-
-import { SigninPage } from './pages/admin/pages/signin/signin.page';
-
-import { AdminAdminsPage } from './pages/admin/pages/admins/admins.page';
-import { AdminCarsPage } from './pages/admin/pages/cars/cars.page';
-
 export const routes: Routes = [
   {
     path: '',
@@ -33,6 +26,7 @@ export const routes: Routes = [
       {
         path: 'home',
         component: HomePage,
+        title: `${BRAND_CONFIG.name} - Продажа автомобилей в Ярославле`,
       },
 
       {
@@ -41,11 +35,13 @@ export const routes: Routes = [
           {
             path: 'search',
             component: SearchPage,
+            title: `Поиск автомобилей | ${BRAND_CONFIG.name}`,
           },
 
           {
             path: ':carId',
             component: CarPage,
+            title: 'Автомобиль',
           },
         ],
       },
@@ -78,39 +74,6 @@ export const routes: Routes = [
         path: 'contacts',
         component: Contacts,
         title: 'Контакты',
-      },
-    ],
-  },
-
-  {
-    path: 'admin',
-
-    children: [
-      {
-        path: '',
-        pathMatch: 'full',
-        redirectTo: '/admin/signin',
-      },
-
-      {
-        path: 'signin',
-        component: SigninPage,
-      },
-
-      {
-        path: '',
-        component: AdminLayoutComponent,
-        children: [
-          {
-            path: 'admins',
-            component: AdminAdminsPage,
-          },
-
-          {
-            path: 'cars',
-            component: AdminCarsPage,
-          },
-        ],
       },
     ],
   },

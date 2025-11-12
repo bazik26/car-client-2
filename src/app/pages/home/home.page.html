@@ -1,123 +1,76 @@
-<!-- Hero Section - Современный асимметричный дизайн -->
+<!-- Hero Section - Mobile First -->
 <section class="hero-section">
-  <!-- Геометрические фигуры -->
-  <div class="geometric-shapes">
+  <!-- Floating Shapes Background -->
+  <div class="floating-shapes">
     <div class="shape shape-1"></div>
     <div class="shape shape-2"></div>
     <div class="shape shape-3"></div>
     <div class="shape shape-4"></div>
   </div>
 
-  <!-- Левая колонка - навигация и статистика -->
-  <div class="hero-left">
-    <div class="hero-nav">
-      <a routerLink="/cars/search" class="nav-item">
-        <div class="nav-icon">
-          <i class="fas fa-car"></i>
-        </div>
-        <div class="nav-text">Автомобили</div>
+  <div class="hero-container">
+    <!-- Главный заголовок H1 для Яндекса -->
+    <h1 class="hero-main-title">
+      Пригон автомобилей из Европы в Ярославле и по всей России
+    </h1>
+    
+    <!-- Логотип -->
+    <div class="hero-logo">
+      <div class="logo-icon">
+        <i class="fas fa-car"></i>
+      </div>
+      <div class="logo-text">
+        <div class="logo-brand">{{ brandConfig.name }}</div>
+        <div class="logo-tagline">Подбор, доставка и растаможка под ключ</div>
+      </div>
+    </div>
+
+    <!-- Подзаголовок -->
+    <p class="hero-subtitle">
+      Профессиональный подбор автомобилей из Германии, Польши и других стран Европы. Гарантия качества и честные цены.
+    </p>
+
+    <!-- Кнопки -->
+    <div class="hero-buttons">
+      <a class="btn btn-primary" routerLink="/cars/search">
+        <i class="fas fa-search"></i>
+        <span>Найти автомобиль</span>
       </a>
-      <a routerLink="/services" class="nav-item">
-        <div class="nav-icon">
-          <i class="fas fa-tools"></i>
-        </div>
-        <div class="nav-text">Услуги</div>
-      </a>
-      <a routerLink="/about" class="nav-item">
-        <div class="nav-icon">
-          <i class="fas fa-info-circle"></i>
-        </div>
-        <div class="nav-text">О нас</div>
-      </a>
-      <a routerLink="/contacts" class="nav-item">
-        <div class="nav-icon">
-          <i class="fas fa-phone"></i>
-        </div>
-        <div class="nav-text">Контакты</div>
+      <a class="btn btn-secondary" href="https://t.me/autobroker_yar" target="_blank">
+        <i class="fab fa-telegram-plane"></i>
+        <span>Telegram канал</span>
       </a>
     </div>
 
+    <!-- Статистика -->
     <div class="hero-stats">
       <div class="stat-item">
         <div class="stat-number">500+</div>
-        <div class="stat-label">Автомобилей в наличии</div>
+        <div class="stat-label">Авто</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">15</div>
-        <div class="stat-label">Лет опыта</div>
+        <div class="stat-label">Лет</div>
       </div>
       <div class="stat-item">
         <div class="stat-number">1000+</div>
-        <div class="stat-label">Довольных клиентов</div>
+        <div class="stat-label">Клиентов</div>
       </div>
     </div>
-  </div>
 
-  <!-- Центральная колонка - основной контент -->
-  <div class="hero-center">
-    <div class="hero-logo">
-      <div class="logo-container">
-        <div class="logo-icon">
-          <i class="fas fa-car"></i>
-        </div>
-        <div class="logo-text">
-          <span class="logo-brand" [attr.data-text]="brandConfig.name">
-            {{ brandConfig.name }}
-            <span class="brand-accent">AUTO</span>
-          </span>
-          <span class="logo-tagline">Автомобили с пробегом</span>
-        </div>
-      </div>
-    </div>
-    
-    <h1 class="hero-title">
-      <span class="title-line">Добро пожаловать в</span>
-      <span class="title-line">{{ brandConfig.name }}</span>
-      <span class="title-line">Лучшие автомобили с пробегом</span>
-    </h1>
-    
-    <p class="hero-subtitle">
-      Профессиональный подбор автомобилей с пробегом. 
-      Гарантия качества, честные цены и индивидуальный подход к каждому клиенту.
-    </p>
-    
-    <div class="hero-buttons">
-      <a class="btn btn-primary" routerLink="/cars/search">
-        <i class="fas fa-search me-2"></i>
-        Найти автомобиль
-      </a>
-      <button class="btn btn-outline" (click)="openContactUsModal()">
-        <i class="fas fa-phone me-2"></i>
-        Связаться с нами
-      </button>
-    </div>
-  </div>
-
-  <!-- Правая колонка - особенности -->
-  <div class="hero-right">
+    <!-- Преимущества -->
     <div class="hero-features">
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-shield-alt"></i>
-        </div>
-        <div class="feature-title">Гарантия качества</div>
-        <div class="feature-description">Полная проверка каждого автомобиля перед продажей</div>
+      <div class="feature-item">
+        <i class="fas fa-shield-alt"></i>
+        <span>Гарантия</span>
       </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-dollar-sign"></i>
-        </div>
-        <div class="feature-title">Честные цены</div>
-        <div class="feature-description">Прозрачное ценообразование без скрытых платежей</div>
+      <div class="feature-item">
+        <i class="fas fa-dollar-sign"></i>
+        <span>Честные цены</span>
       </div>
-      
-      <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-headset"></i>
-        </div>
-        <div class="feature-title">Поддержка 24/7</div>
-        <div class="feature-description">Круглосуточная поддержка и консультации</div>
+      <div class="feature-item">
+        <i class="fas fa-headset"></i>
+        <span>Поддержка 24/7</span>
       </div>
     </div>
   </div>
@@ -277,10 +230,10 @@
       <h2 class="cta-title">Готовы найти свой идеальный автомобиль?</h2>
       <p class="cta-subtitle">Свяжитесь с нами прямо сейчас и получите персональную консультацию</p>
       <div class="cta-buttons">
-        <button class="btn btn-warning btn-lg" (click)="openContactUsModal()">
-          <i class="fas fa-phone me-2"></i>
-          {{ brandConfig.phone }}
-        </button>
+        <a class="btn btn-warning btn-lg" href="https://t.me/autobroker_yar" target="_blank">
+          <i class="fab fa-telegram-plane me-2"></i>
+          Наш Telegram канал
+        </a>
         <a class="btn btn-outline-light btn-lg" routerLink="/cars/search">
           <i class="fas fa-car me-2"></i>
           Посмотреть все автомобили
