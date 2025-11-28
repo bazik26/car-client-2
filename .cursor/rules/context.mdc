@@ -1,0 +1,23 @@
+---
+description: >
+  Guidance for the second Angular client (`car-client-2`) sharing API logic with the main site.
+appliesTo:
+  - car-client-2/**
+---
+
+# Overview
+
+- **Stack**: Angular 20 standalone components; similar setup to `car-client` but focused on the public catalog variant (no embedded admin console).
+- **Routing**: Defined in `app.routes.ts`; wraps marketing pages (`/home`, `/cars/search`, `/car/:id`, `/team`, etc.) inside `LayoutComponent`.
+- **Shared Blocks**: UI pieces live under `blocks/**` (car card, contact form, layout). Reuse these components when extending pages to keep styling consistent.
+- **Configuration**: `config/cities.config.ts` and `config/seo.config.ts` centralise city metadata and meta tags; adjust them instead of editing components directly.
+
+# API Access
+
+- All HTTP calls flow through `AppService`, mirroring `car-client`’s methods. Continue using the helper to benefit from consistent query param handling and image URL normalisation.
+- Authentication helpers (`AuthService`, `AuthInterceptor`) are present for future admin reuse; if enabling auth-only features, mount them under `/admin` similar to the main client.
+
+# Development Notes
+
+- Local API host lives in `environment.ts` (`http://localhost:3001`); production builds rely on `environment.prod.ts`.
+- Prefer standalone components and co-located SCSS; when adding new sections, update routing titles for SEO and use `config/seo.config.ts` for meta tags.

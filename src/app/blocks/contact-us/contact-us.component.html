@@ -39,7 +39,9 @@
                  [(ngModel)]="selectedMessenger" required>
           <label for="telegram" class="messenger-label">
             <div class="messenger-icon">
-              <i class="fab fa-telegram-plane"></i>
+              <a href="https://t.me/autobroker_yar" target="_blank" (click)="$event.stopPropagation()" title="Наш Telegram канал">
+                <i class="fab fa-telegram-plane"></i>
+              </a>
             </div>
             <div class="messenger-info">
               <span class="messenger-name">Telegram</span>
