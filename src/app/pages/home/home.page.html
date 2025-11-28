@@ -106,7 +106,7 @@
             Индивидуальные <span class="accent">предложения</span>
           </h3>
           <p class="info-description">
-            Мы подбираем автомобили специально для вас из тех, что уже находятся в пути. 
+            Мы подбираем автомобили специально для вас из тех, что уже находятся в наличии. 
             Это позволяет значительно сократить время ожидания и получить лучшую цену.
           </p>
           <div class="info-features">
@@ -141,7 +141,7 @@
         @for (car of specialOfferCars.slice(0, 4); track car.id; let index = $index) {
           <div class="car-example">
             <div class="status-badge">
-              В пути
+              В наличии
             </div>
             <div class="car-image">
               @if (car.files && car.files.length > 0) {
@@ -165,8 +165,8 @@
                 </div>
               </div>
               <div class="arrival-time">
-                <i class="fas fa-clock"></i>
-                Прибытие через 3-5 дней
+                <i class="fas fa-shipping-fast"></i>
+                Доставка до 14 дней
               </div>
             </div>
           </div>

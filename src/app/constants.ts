@@ -15,5 +15,5 @@ export const BRAND_CONFIG = {
     longitude: 39.8737
   },
   ogImage: '/public/favicon.ico',
-  website: 'https://vamauto.com'
+  website: 'https://autobroker-yar.ru'
 } as const;

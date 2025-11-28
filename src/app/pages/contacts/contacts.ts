@@ -43,7 +43,8 @@ export class Contacts {
       messenger: 'telegram',
       firstName: this.contactForm.name,
       phone: this.contactForm.phone,
-      message: `Email: ${this.contactForm.email || 'Не указан'}\n\nСообщение: ${this.contactForm.message}`
+      message: `Email: ${this.contactForm.email || 'Не указан'}\n\nСообщение: ${this.contactForm.message}`,
+      projectSource: this.brandConfig.website
     };
     
     this.appService.contactUs(payload).subscribe({
